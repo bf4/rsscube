@@ -5,6 +5,7 @@
 #define ARTICLE_H
 
 #include <QString>
+#include <QVector>
 #include <QDateTime>
 #include "../other/enums.h"
 
@@ -74,7 +75,7 @@ public:
       @return QVector<Article>
       the articles collection
       */
-    QVector<Article> getArticleByChannelId(int channelId);
+    static QVector<Article> getArticlesByChannelId(int channelId);
 
     /**
        get the article by the id
@@ -83,7 +84,7 @@ public:
        @return Article
        the article
      */
-    Article getArticle(int id);
+    static Article getArticle(int id);
 
     /**
        search the article according to the three params
@@ -94,7 +95,7 @@ public:
        @return  QVector<Article>
        the results that equal to the request
      */
-    QVector<Article> localSearch(MatchType matchType,ReadType readType,ContentType contentType);
+    static QVector<Article> localSearch(MatchType matchType,ReadType readType,ContentType contentType);
 
      /**
       add a new article
@@ -103,7 +104,7 @@ public:
       @return
       the new article's id
       */
-    int addArticle(const int channelId,const QDateTime &publishTime, const  QString &category,const  QString &author,
+    static int addArticle(const int channelId,const QDateTime &publishTime, const  QString &category,const  QString &author,
                    const  QString &title, const  QString &description, const  QString &link);
 
 private:
