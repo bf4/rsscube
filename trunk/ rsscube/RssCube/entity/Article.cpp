@@ -4,6 +4,7 @@
 #include "../other/enums.h"
 #include <QVector>
 
+
 Article::Article()
 {
 
