@@ -6,7 +6,6 @@
 #include<QDateTime>
 #include"../other/enums.h"
 
-
 class Article
 {
 public:
