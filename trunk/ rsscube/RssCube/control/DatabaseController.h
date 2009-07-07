@@ -11,10 +11,19 @@ public:
     DatabaseController();
     ~DatabaseController();
 
+    /**
+      connect the database
+      */
     void connect();
+
+    /**
+      close the database
+      */
     void close();
 
 private:
+
+    /** database */
     QSqlDatabase *mDataBase;
 };
 

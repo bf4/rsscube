@@ -18,7 +18,7 @@ QString Group::getName()
 {
 }
 
-Group Group::getRootGroup()
+QVector<Group> Group::getRootGroups()
 {
 }
 
