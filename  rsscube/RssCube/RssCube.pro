@@ -14,3 +14,4 @@ include(control/control.pri)
 include(entity/entity.pri)
 include(other/other.pri)
 include(resource/resource.pri)
+OTHER_FILES += rss_cube.db
