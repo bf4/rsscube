@@ -27,10 +27,6 @@ QVector<Channel> Channel::getAllChannel()
 {
 }
 
-Channel Channel::getChannel(int id)
-{
-}
-
 QVector<Channel> Channel::getChannelByGroupId(int groupId)
 {
 }
@@ -43,7 +39,7 @@ QVector<Channel> Channel::getUserRecommendChannels()
 {
 }
 
-int Channel::addChannel(const QString  name, const QString url)
+int Channel::addChannel(int groupId, const QString  name, const QString url)
 {
 }
 
