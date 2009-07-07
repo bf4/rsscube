@@ -1,4 +1,5 @@
-//2009-07-07 14:20 于宝创建Recommend框架
+//2009-07-07 于宝 创建框架
+
 #include "RecommendController.h"
 
 RecommendController::RecommendController()

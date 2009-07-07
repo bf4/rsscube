@@ -1,4 +1,5 @@
-//2009-07-07 金欢 创建SearchController框架
+// 2009-07-07 金欢 创建框架
+// 2009-07-07 金欢 添加注释
 
 #ifndef SEARCHCONTROLLER_H
 #define SEARCHCONTROLLER_H

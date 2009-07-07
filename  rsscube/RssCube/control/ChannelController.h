@@ -1,5 +1,6 @@
-//2009-07-07 14：11于宝 创建ChannelController框架
-//2009-07-07 16:00 于宝 添加注释
+//2009-07-07 于宝 创建框架
+//2009-07-07 于宝 添加注释
+
 #ifndef CHANNELCONTROLLER_H
 #define CHANNELCONTROLLER_H
 #include"../other/interfaces.h"

@@ -1,4 +1,5 @@
-//2009-07-07 吴双 创建框架
+// 2009-07-07 吴双 创建框架
+// 2009-07-07 吴双 添加注释
 
 #ifndef STARTCONTROLLER_H
 #define STARTCONTROLLER_H
