@@ -14,15 +14,36 @@ public:
 
     ~SettingController();
 
+    /**
+      change the refresh setting information
+      @param autoRefresh refreshInterval
+      new refresh setting
+      */
     void changeRreshSetting(bool autoRefresh,float refreshInterval);
 
+    /**
+      change the display setting information
+      @param readType
+      new display setting
+      */
     void changeDisplaySetting(ReadType readType);
 
+    /**
+      get the setting information
+      @return Setting
+      */
     Setting getSetting();
 
+    /**
+      Set the observer. When the display setting is channged, the setting will notify the observer.
+      @param *observer
+      The observer to notify.
+      */
     void setObserver(ISettingControllerObserver* observer);
 
  private:
+
+    /**  When the display setting is channged, the observer will be notified. */
     ISettingControllerObserver* mObserver;
 };
 

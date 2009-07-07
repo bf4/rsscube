@@ -31,6 +31,6 @@ void Setting::changeRefreshSetting(bool autoRefresh ,float refreshInterval)
 {
 }
 
-void Setting::changeDispalySetting(ReadType readType)
+void Setting::changeDisplaySetting(ReadType readType)
 {
 }
