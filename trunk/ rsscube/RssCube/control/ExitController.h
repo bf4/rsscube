@@ -7,13 +7,26 @@
 class ExitController
 {
 public:
-    ExitController();
     ~ExitController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const ExitController & getInstance()
+    {
+        static ExitController instance;
+        return instance;
+    }
 
     /**
       end the program
       */
     void exit();
+
+private:
+    ExitController();
 };
 
 #endif // EXITCONTROLLER_H

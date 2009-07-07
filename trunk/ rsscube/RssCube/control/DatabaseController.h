@@ -9,8 +9,18 @@
 class DatabaseController
 {
 public:
-    DatabaseController();
     ~DatabaseController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const DatabaseController & getInstance()
+    {
+        static DatabaseController instance;
+        return instance;
+    }
 
     /**
       connect the database
@@ -23,6 +33,7 @@ public:
     void close();
 
 private:
+    DatabaseController();
 
     /** database */
     QSqlDatabase *mDataBase;

@@ -9,9 +9,20 @@
 
 class ChannelController
 {
-public:
-    ChannelController();
+public:    
     ~ChannelController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const ChannelController & getInstance()
+    {
+        static ChannelController instance;
+        return instance;
+    }
+
      /**
       set the observer when the url is checked
       @param observer
@@ -102,6 +113,8 @@ public:
                                  DownloadState downloadState);
 
 private:
+    ChannelController();
+
     /**  a pointer that observes action that checks the url*/
     IChannelControllerObserver *mObserver;
 };
