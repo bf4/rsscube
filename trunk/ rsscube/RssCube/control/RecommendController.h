@@ -1,5 +1,5 @@
-//2009-07-07 14:20 于宝创建Recommend框架
-//2009-07-07 16:40 于宝添加注释
+//2009-07-07 于宝创建框架
+//2009-07-07 于宝添加注释
 
 #ifndef RECOMMENDCONTROLLER_H
 #define RECOMMENDCONTROLLER_H

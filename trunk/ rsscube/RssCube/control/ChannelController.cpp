@@ -1,4 +1,4 @@
-//2009-07-07 14：11 于宝 创建ChannelController框架
+// 2009-07-07 于宝 创建框架
 
 #include "ChannelController.h"
 

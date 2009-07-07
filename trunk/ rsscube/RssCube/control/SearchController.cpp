@@ -1,4 +1,4 @@
-//2009-07-07 金欢 创建SearchController框架
+//2009-07-07 金欢 创建框架
 
 #include "SearchController.h"
 #include <QVector>
