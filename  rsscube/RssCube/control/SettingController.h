@@ -1,6 +1,10 @@
 #ifndef SETTINGCONTROLLER_H
 #define SETTINGCONTROLLER_H
 
+#include "../other/enums.h"
+#include "../other/interfaces.h"
+#include "../entity/Setting.h"
+
 class SettingController
 {
 public:
@@ -17,7 +21,7 @@ public:
     void setObserver(ISettingControllerObserver* observer);
 
  private:
-    ISettingObserver* mObserver;
+    ISettingControllerObserver* mObserver;
 };
 
 #endif // SETTINGCONTROLLER_H

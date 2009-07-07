@@ -5,30 +5,30 @@
 
 enum DownloadState
 {
-    Success,
-    Timeout,
-    RssFormatError
+    DS_Success,
+    DS_Timeout,
+    DS_RssFormatError
 };
 
 enum MatchType
 {
-    Whole,
-    Fuzzy
+    MT_Whole,
+    MT_Fuzzy
 };
 
 enum ReadType
 {
-    All,
-    Read,
-    Unread
+    RT_All,
+    RT_Read,
+    RT_Unread
 };
 
 enum ContentType
 {
-    Author,
-    Title,
-    Url,
-    Summary
+    CT_Author,
+    CT_Title,
+    CT_Url,
+    CT_Summary
 };
 
 #endif // ENUM_H

@@ -1,6 +1,8 @@
 #ifndef SETTING_H
 #define SETTING_H
 
+#include "../other/enums.h"
+
 class Setting
 {
 public:

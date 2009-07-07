@@ -8,19 +8,19 @@ SettingController::~SettingController()
 {
 }
 
-SettingController::changeRreshSetting(bool autoRefresh, float refreshInterval)
+void SettingController::changeRreshSetting(bool autoRefresh, float refreshInterval)
 {
 }
 
-SettingController::changeDisplaySetting(ReadType readType)
+void SettingController::changeDisplaySetting(ReadType readType)
 {
 }
 
-SettingController::getSetting()
+Setting SettingController::getSetting()
 {
 }
 
-SettingController::setObserver(ISettingControllerObserver* observer)
+void SettingController::setObserver(ISettingControllerObserver* observer)
 {
 }
 
