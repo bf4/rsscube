@@ -16,10 +16,10 @@ public:
     QString getName();
     static Group getRootGroup();
     static QVector<Group> getSubGroups(int id);
-    static int addGroup(int parentId ,const QString & name);
+    static int addGroup(int parentId, const QString &name);
     static void removeGroup(int id);
-    static void renameGroup(int id ,const QString & name);
-    static void setParent(int id ,int parentId);
+    static void renameGroup(int id, const QString &name);
+    static void setParent(int id, int parentId);
 
 private:
     int mId;
