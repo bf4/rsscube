@@ -1,3 +1,5 @@
+// 2009-07-07 孔乂宇 创建框架
+
 #include "Setting.h"
 
 Setting::Setting()

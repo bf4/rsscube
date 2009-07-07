@@ -1,6 +1,8 @@
 #ifndef SETTING_H
 #define SETTING_H
 
+// 2009-07-07 孔乂宇 创建框架
+
 #include "../other/enums.h"
 
 class Setting
