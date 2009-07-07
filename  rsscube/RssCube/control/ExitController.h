@@ -1,4 +1,4 @@
-//2009-07-07 吴双构建控制类ExitController
+//2009-07-07 吴双 创建框架
 
 #ifndef EXITCONTROLLER_H
 #define EXITCONTROLLER_H

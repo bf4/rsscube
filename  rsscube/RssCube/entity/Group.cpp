@@ -1,4 +1,5 @@
-// 2009-07-07 吴双 构建Group实体类框架
+// 2009-07-07 吴双 创建框架
+
 #include "Group.h"
 
 Group::Group()
