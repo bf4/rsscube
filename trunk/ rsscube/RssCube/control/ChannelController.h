@@ -3,9 +3,9 @@
 
 #ifndef CHANNELCONTROLLER_H
 #define CHANNELCONTROLLER_H
-#include"../other/interfaces.h"
-#include<QVector>
-#include"../entity/Article.h"
+#include "../other/interfaces.h"
+#include <QVector>
+#include "../entity/Article.h"
 
 class ChannelController
 {
