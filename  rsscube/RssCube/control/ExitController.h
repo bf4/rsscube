@@ -9,6 +9,9 @@ public:
     ExitController();
     ~ExitController();
 
+    /**
+      end the program
+      */
     void exit();
 };
 

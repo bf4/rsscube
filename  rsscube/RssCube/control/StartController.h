@@ -9,6 +9,9 @@ public:
     StartController();
     ~StartController();
 
+    /**
+      initialize this program, start refresh controller and open database
+      */
     void init();
 };
 
