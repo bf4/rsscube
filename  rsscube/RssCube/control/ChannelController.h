@@ -1,4 +1,5 @@
 //2009-07-07 14：11于宝 创建ChannelController框架
+//2009-07-07 16:00 于宝 添加注释
 #ifndef CHANNELCONTROLLER_H
 #define CHANNELCONTROLLER_H
 #include"../other/interfaces.h"
@@ -10,20 +11,97 @@ class ChannelController
 public:
     ChannelController();
     ~ChannelController();
+     /**
+      set the observer when the url is checked
+      @param observer
+      the channel controller observer
+      */
     void setObserver(IChannelControllerObserver observer);
+
+     /**
+      get articles in the specific channel
+      @param channelId
+      a specific channel's id
+      @return
+      the articles in the specific
+      */
     QVector<Article> getArticles(int channelId);
+
+     /**
+      add a new channel to a specific group
+      @param groupId
+      to specify the group to add the channel in
+      @param name
+      the new channel's name
+      @param &url
+      the channel's url
+      @return
+      the new channel's id
+      */
     int addChannel(int groupId,const QString &name,const QString &url);
+
+     /**
+      to remove a channel
+      @param channelId
+      the id the channel to remove
+      */
     void removeChannel(int channelId);
+
+     /**
+      to move a channel by dragging it onto a new group
+      @param channelId
+      the id of the channel to move
+      @param newGroupId
+      the id of the group which the channel is to move in
+      */
     void dragChannel(int channelId,int newGroupId);
+
+     /**
+      to rename a channel
+      @param channelId
+      the id of the channel to rename
+      @param newName
+      the channel's newName
+      */
     void renameChannel(int channelId,const QString &newName);
+
+     /**
+      to refresh the channel
+      @param channelId
+      to specify the channel by the id
+      */
     void refreshChannel(int channelId);
+
+     /**
+      refresh all the channels
+      */
     void refreshAllChannels();
+
+     /**
+      to invoke the function writeHtml of the Aarticle class
+      @param
+      */
     void writeArticle(int articleId);
+
+     /**
+       to check if a url is a valid url and if the source live up to the RSS standard
+      */
     void checkUrl();
+
+     /**
+        to handle the channels that has been downloaded
+      @param channelId
+      the channels to handle
+      @param downloaderToDelete
+      a pointer pointing to a channelDownloader
+      @param downloadState
+      the download state
+      */
     void handleChannelDownloaded(int channelId,ChannelDownloader* downloaderToDelete,
                                  DownloadState downloadState);
 
 private:
+    /**  a pointer that observes action that checks the url*/
     IChannelControllerObserver *mObserver;
 };
 
