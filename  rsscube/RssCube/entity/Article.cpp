@@ -1,4 +1,4 @@
-//2009-07-07 于宝 Article框架
+// 2009-07-07 于宝 创建框架
 
 #include "Article.h"
 #include"../other/enums.h"
