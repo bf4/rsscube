@@ -15,6 +15,14 @@ public:
     virtual void handleChannelDownloaded(int channelId, DownloadState downloadState, ChannelDownloader* downloaderToDelete) = 0;
 };
 
+class IChannelControllerObserver
+{
+
+public:
+    virtual ~IChannelControllerObserver();
+    virtual void handleUrlChecked(DownloadState downloadState);
+};
+
 class IRefreshControllerObserver
 {
 
