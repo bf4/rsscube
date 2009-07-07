@@ -10,7 +10,7 @@ ChannelDownloader::~ChannelDownloader()
 {
 }
 
-void ChannelDownloader::setObserver(IChannelDownloaderObserver* observer)
+void ChannelDownloader::setObserver(IChannelDownloaderObserver *observer)
 {
 }
 
