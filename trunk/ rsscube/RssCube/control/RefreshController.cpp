@@ -14,7 +14,7 @@ void RefreshController::init()
 {
 }
 
-void RefreshController::setObserver(IRefreshControllerObserver* observer)
+void RefreshController::setObserver(IRefreshControllerObserver *observer)
 {
 }
 
@@ -26,6 +26,6 @@ void RefreshController::refresh(int channelId)
 {
 }
 
-void RefreshController::handleChannelDownloaded(int channelId, DownloadState downloadState, ChannelDownloader* downloaderToDelete)
+void RefreshController::handleChannelDownloaded(int channelId, DownloadState downloadState, ChannelDownloader*downloaderToDelete)
 {
 }

@@ -15,7 +15,7 @@ class ChannelDownloader
 public:
     ChannelDownloader(bool writeDb = true);
     ~ChannelDownloader();
-    void setObserver(IChannelDownloaderObserver* observer);
+    void setObserver(IChannelDownloaderObserver *observer);
     void downloadChannelAsync(int id);
     void httpDownloaded();
     void httpTimeout();

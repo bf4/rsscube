@@ -15,10 +15,10 @@ public:
     RefreshController();
     ~RefreshController();
     void init();
-    void setObserver(IRefreshControllerObserver* observer);
+    void setObserver(IRefreshControllerObserver *observer);
     void refreshAll();
     void refresh(int channelId);
-    void handleChannelDownloaded(int channelId, DownloadState downloadState, ChannelDownloader* downloaderToDelete);
+    void handleChannelDownloaded(int channelId, DownloadState downloadState, ChannelDownloader *downloaderToDelete);
 
 private:
     void run();
