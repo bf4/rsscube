@@ -1,3 +1,5 @@
+//2009-07-07 金欢 创建Channel框架
+
 #ifndef CHANNEL_H
 #define CHANNEL_H
 
