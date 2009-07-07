@@ -1,8 +1,8 @@
 // 2009-07-07 于宝 创建框架
 
 #include "Article.h"
-#include"../other/enums.h"
-#include<QVector>
+#include "../other/enums.h"
+#include <QVector>
 
 Article::Article()
 {
