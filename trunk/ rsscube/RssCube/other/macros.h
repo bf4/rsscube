@@ -3,6 +3,7 @@
 #ifndef MACROS_H
 #define MACROS_H
 
+/** Use this macro instead of delete to delete a pointer */
 #define DELETE(p)      \
         if (p != NULL)  \
         {                \

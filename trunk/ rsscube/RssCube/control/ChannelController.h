@@ -16,7 +16,7 @@ public:
       @param observer
       the channel controller observer
       */
-    void setObserver(IChannelControllerObserver observer);
+    void setObserver(IChannelControllerObserver *observer);
 
      /**
       get articles in the specific channel
