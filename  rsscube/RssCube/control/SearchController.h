@@ -12,8 +12,18 @@
 class SearchController
 {
 public:
-    SearchController();
     ~SearchController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const SearchController & getInstance()
+    {
+        static SearchController instance;
+        return instance;
+    }
 
     /**
       search the articles in the local range
@@ -27,6 +37,9 @@ public:
       return the articles that satisfied the conditions
       */
     QVector<Article> localSearch(MatchType matchType, ReadType readType, ContentType contentType);
+
+private:
+    SearchController();
 };
 
 #endif // SEARCHCONTROLLER_H

@@ -12,9 +12,19 @@
 
 class RefreshController : IChannelDownloaderObserver
 {
-public:
-    RefreshController();
+public:    
     ~RefreshController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const RefreshController & getInstance()
+    {
+        static RefreshController instance;
+        return instance;
+    }
 
     /**
       Init the controller. Start to refresh if sutoRefresh is set to true.
@@ -54,6 +64,7 @@ public:
     void handleChannelDownloaded(int channelId, DownloadState downloadState, ChannelDownloader *downloaderToDelete);
 
 private:
+    RefreshController();
 
     /**
       excute the refresh operation.

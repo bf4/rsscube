@@ -11,9 +11,18 @@
 class SettingController
 {
 public:
-    SettingController();
-
     ~SettingController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const SettingController & getInstance()
+    {
+        static SettingController instance;
+        return instance;
+    }
 
     /**
       change the refresh setting information
@@ -43,6 +52,7 @@ public:
     void setObserver(ISettingControllerObserver* observer);
 
  private:
+    SettingController();
 
     /**  When the display setting is channged, the observer will be notified. */
     ISettingControllerObserver* mObserver;

@@ -7,13 +7,26 @@
 class StartController
 {
 public:
-    StartController();
     ~StartController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const StartController & getInstance()
+    {
+        static StartController instance;
+        return instance;
+    }
 
     /**
       initialize this program, start refresh controller and open database
       */
     void init();
+
+private:
+    StartController();
 };
 
 #endif // STARTCONTROLLER_H

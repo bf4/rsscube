@@ -11,8 +11,18 @@
 class GroupController
 {
 public:
-    GroupController();
     ~GroupController();
+
+    /**
+      Get the instance of the controller.
+      @return
+      The instance of the controller.
+      */
+    static const GroupController & getInstance()
+    {
+        static GroupController instance;
+        return instance;
+    }
 
     /**
       get all the root groups
@@ -66,6 +76,8 @@ public:
       */
     void renameGroup(int id, const QString &newName);
 
+private:
+    GroupController();
 };
 
 #endif // GROUPCONTROLLER_H
