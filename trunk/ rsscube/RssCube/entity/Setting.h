@@ -12,21 +12,56 @@ public:
 
     ~Setting();
 
+    /**
+       get whether autorefresh or not
+       @return
+       autorefresh information
+       */
     bool getAutoRefresh();
 
+     /**
+      get the refresh interval
+      @return
+      refresh interval information
+      */
     float getRefreshInterval();
 
+     /**
+      get the display type
+      @return
+      display type information
+      */
     ReadType getDisplayType();
 
-    Setting getSettingInfo();
+     /**
+      get the setting information
+      @return
+      setting information
+      */
+    static Setting getSettingInfo();
 
-    void changeRefreshSetting(bool autoRefresh ,float refreshInterval);
+     /**
+      change the refresh setting
+      @param autoRefrsh refrshInterval
+      new refresh setting
+      */
+    static void changeRefreshSetting(bool autoRefresh ,float refreshInterval);
 
-    void changeDispalySetting(ReadType readType);
+     /**
+      change the display setting
+      @param redType
+      new display setting
+      */
+    static void changeDisplaySetting(ReadType readType);
 
 private:
+    /** use to save autorefresh information */
     bool mAutoRefresh;
+
+    /** use to save refrshinterval information */
     float mRefreshInterval;
+
+    /** use to save displaytype information */
     ReadType mDisplayType;
 };
 
