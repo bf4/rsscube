@@ -3,6 +3,7 @@
 #ifndef ENUM_H
 #define ENUM_H
 
+/** Download types */
 enum DownloadState
 {
     DS_Success,
@@ -10,12 +11,14 @@ enum DownloadState
     DS_RssFormatError
 };
 
+/** Match types */
 enum MatchType
 {
     MT_Whole,
     MT_Fuzzy
 };
 
+/** Read types */
 enum ReadType
 {
     RT_All,
@@ -23,6 +26,7 @@ enum ReadType
     RT_Unread
 };
 
+/** content types */
 enum ContentType
 {
     CT_Author,

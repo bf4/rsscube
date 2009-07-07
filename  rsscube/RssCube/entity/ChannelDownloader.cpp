@@ -14,7 +14,7 @@ void ChannelDownloader::setObserver(IChannelDownloaderObserver *observer)
 {
 }
 
-void ChannelDownloader::downloadChannelAsync(int id)
+void ChannelDownloader::downloadChannelAsync(int channelId)
 {
 }
 
