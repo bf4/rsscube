@@ -8,26 +8,27 @@ Setting::~Setting()
 {
 }
 
-Setting::getAutoRefresh()
+bool Setting::getAutoRefresh()
 {
 }
 
-Setting::getRefreshInterval()
+float Setting::getRefreshInterval()
 {
 }
 
-Setting::getDisplayType()
+ReadType Setting::getDisplayType()
 {
 }
 
-Setting::getSettingInfo()
+Setting Setting::getSettingInfo()
+{
+    return Setting();
+}
+
+void Setting::changeRefreshSetting(bool autoRefresh ,float refreshInterval)
 {
 }
 
-Setting::changeRefreshSetting(bool autoRefresh ,float refreshInterval)
-{
-}
-
-Setting::changeDispalySetting(ReadType readType)
+void Setting::changeDispalySetting(ReadType readType)
 {
 }
