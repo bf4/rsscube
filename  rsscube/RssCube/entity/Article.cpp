@@ -72,7 +72,7 @@ QVector<Article> Article::getArticlesByChannelId(int channelId)
 {
     QVector<Article> ret;
     QSqlQuery query;
-    query.prepare("SELECT id,publish_date,category,author,title,description,link"
+    query.prepare("SELECT id,publish_date,category,author,title,description,link "
                    "FROM articles where channel_id=:channelId");
 
     query.bindValue(":channelId",channelId);
@@ -97,7 +97,7 @@ QVector<Article> Article::getArticlesByChannelId(int channelId)
 Article Article::getArticle(int id)
 {
     QSqlQuery query;
-    query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type"
+    query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
                    "FROM articles where id=:id");
     query.bindValue(":id",id);
     query.exec();
@@ -128,7 +128,7 @@ QVector<Article> Article::localSearch(MatchType matchType,ReadType readType,Cont
     QString conType=convertContentType(contentType);
     if(readType==RT_All)
     {
-        query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type"
+        query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
                    "FROM articles where :contentType like :keyword");
         query.bindValue(":contentType",conType);
         query.bindValue(":keyword",searchWord);
@@ -141,7 +141,7 @@ QVector<Article> Article::localSearch(MatchType matchType,ReadType readType,Cont
             reType="true";
         else reType="false";
 
-        query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type"
+        query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
                        "FROM articles where read_type=:readType and :contentType like :keyword");
         query.bindValue(":readType",reType);
         query.bindValue(":contentType",conType);
