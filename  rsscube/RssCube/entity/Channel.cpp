@@ -1,5 +1,6 @@
 // 2009-07-07 金欢 创建框架
 // 2009-07-08 金欢 函数实现
+// 2009-07-08 裴小星 修改函数 getChannel
 
 #include <QSqlQuery>
 #include <QVector>
@@ -34,12 +35,12 @@ Channel Channel::getChannel(int channelId)
     Channel ret;
 
     QSqlQuery query;    
-    query.prepare(" SELECT id, name, url "
-                  "FROM channels WHERE channel_id=:channel_id");
-    query.bindValue(":channel_id", channelId);    
+    query.prepare("SELECT id, name, url FROM channels WHERE id=:id");
+    query.bindValue(":id", channelId);
     query.exec();
 
     query.next();
+
     ret.mId=query.value(0).toInt();
     ret.mName=query.value(1).toString();
     ret.mUrl=query.value(2).toString();
@@ -52,8 +53,7 @@ QVector<Channel> Channel::getAllChannels()
     QVector<Channel> ret;
     QSqlQuery query;
     Channel channel;
-    query.exec("SELECT id, name, url "
-                  "FROM channels");
+    query.exec("SELECT id, name, url FROM channels");
 
     while(query.next())
     {
