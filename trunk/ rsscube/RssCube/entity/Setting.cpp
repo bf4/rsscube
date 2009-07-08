@@ -53,7 +53,7 @@ void Setting::changeRefreshSetting(bool autoRefresh ,float refreshInterval)
     query.exec();
 }
 
-void Setting::changeDisplaySetting(ReadType readType)
+void Setting::changeDisplaySetting(ReadType displayType)
 {
     QSqlQuery query;
     query.prepare("UPDATE groups SET display_type=:display_type");
