@@ -14,11 +14,6 @@ GroupController::~GroupController()
 {
 }
 
-QVector<Group> GroupController::getRootGroups()
-{
-    return Group::getRootGroups();
-}
-
 QVector<Group> GroupController::getSubGroups(int parentId)
 {
     return Group::getSubGroups(parentId);

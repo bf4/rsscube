@@ -25,13 +25,6 @@ public:
     }
 
     /**
-      get all the root groups
-      @return
-      return all the root groups
-      */
-    QVector<Group> getRootGroups();
-
-    /**
       get the children's groups of the chose group
       @param parentId
       the chosen group's id
