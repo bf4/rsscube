@@ -31,11 +31,14 @@ void ChannelDownloader::setObserver(IChannelDownloaderObserver *observer)
     mObserver = observer;
 }
 
-void ChannelDownloader::downloadChannelAsync(Channel & channelToDownload)
-{    
+void ChannelDownloader::setChannelToDownload(const Channel & channelToDownload)
+{
     mChannel = channelToDownload;
+}
 
-    QUrl url(channelToDownload.getUrl());
+void ChannelDownloader::downloadChannelAsync()
+{    
+    QUrl url(mChannel.getUrl());
     mHttp->setHost(url.host(), url.port(80));
 
     mBuffer->open(QIODevice::WriteOnly);

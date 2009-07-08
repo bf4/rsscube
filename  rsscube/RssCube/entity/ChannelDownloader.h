@@ -36,11 +36,18 @@ public:
     void setObserver(IChannelDownloaderObserver *observer);
 
     /**
+      Set the channel to dowmload.
+      @param channelToDownload
+      The channel to download
+      */
+    void setChannelToDownload(const Channel & channelToDownload);
+
+    /**
       Start to download the channel.
       @param channelId
       The id of the channel to download.
       */
-    void downloadChannelAsync(Channel & channelToDownload);
+    void downloadChannelAsync();
 
 private:
 
