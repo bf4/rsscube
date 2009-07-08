@@ -7,6 +7,7 @@
 #include "../other/interfaces.h"
 #include <QVector>
 #include "../entity/Article.h"
+#include "../entity/Channel.h"
 
 class ChannelController
 {
@@ -79,22 +80,10 @@ public:
     void renameChannel(int channelId,const QString &newName);
 
      /**
-      to refresh the channel
-      @param channelId
-      to specify the channel by the id
-      */
-    void refreshChannel(int channelId);
-
-     /**
-      refresh all the channels
-      */
-    void refreshAllChannels();
-
-     /**
       to invoke the function writeHtml of the Aarticle class
       @param
       */
-    void getArticleHtml(int articleId);
+    QString getArticleHtml(int articleId);
 
      /**
        to check if a url is a valid url and if the source live up to the RSS standard
