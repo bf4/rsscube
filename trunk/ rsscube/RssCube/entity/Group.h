@@ -28,13 +28,6 @@ public:
     QString getName();
 
     /**
-      get all the root groups
-      @return
-      the root groups collection
-      */
-    static QVector<Group> getRootGroups();
-
-    /**
       get one group's child groups by id
       @param id
       one group's id
