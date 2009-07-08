@@ -2,7 +2,8 @@
 // 2009-07-07 于宝 添加注释
 //2009－07－08 于宝 修改publishDate类型为QString
 //2009－07－08 于宝  添加Article::removeArticles函数, writeHtml()改为getHtml()
-
+//下午添加 isRead,getIsRead()  修改localSearch（），添加关键字，channelController待更改,
+//添加函数convertContentType()
 
 
 #ifndef ARTICLE_H
@@ -68,6 +69,13 @@ public:
     QString getLink();
 
     /**
+       get the article's read type
+       @return
+       the article's read state
+     */
+    bool getIsRead();
+
+    /**
      display the article's address on the address line of the browser
      */
     void getHtml();
@@ -99,7 +107,7 @@ public:
        @return  QVector<Article>
        the results that equal to the request
      */
-    static QVector<Article> localSearch(MatchType matchType,ReadType readType,ContentType contentType);
+    static QVector<Article> localSearch(MatchType matchType,ReadType readType,ContentType contentType,QString keyword);
 
      /**
       add a new article
@@ -118,6 +126,15 @@ public:
       */
     static void removeArticles(int channelId);
 
+private:
+     /**
+      convert the emun type to string
+      @param
+      ContetType
+      @return
+      QString
+      */
+   static QString convertContentType(ContentType contentType);
 private:
     /** the article's id  */
     int mId;
@@ -139,6 +156,8 @@ private:
 
     /** the article's link  */
     QString mLink;
+    /** is the article readed?*/
+    bool mIsRead;
 
 };
 
