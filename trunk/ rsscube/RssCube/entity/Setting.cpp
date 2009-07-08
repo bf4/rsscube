@@ -1,4 +1,6 @@
 // 2009-07-07 孔乂宇 创建框架
+// 2009-07-08 孔乂宇 实现函数
+// 2009-07-08 裴小星 修改 getSettingInfo changeRefreshSetting
 
 #include <QVariant>
 #include <QSqlQuery>
