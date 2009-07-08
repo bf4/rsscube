@@ -3,7 +3,7 @@
 //2009－07－08 于宝 修改publishDate类型为QString
 //2009－07－08 于宝  添加Article::removeArticles函数, writeHtml()改为getHtml()
 //下午添加 isRead,getIsRead()  修改localSearch（），添加关键字，channelController待更改,
-//添加函数convertContentType()
+//添加函数convertContentType() ,getHtml(int articleId)
 
 
 #ifndef ARTICLE_H
@@ -78,7 +78,7 @@ public:
     /**
      display the article's address on the address line of the browser
      */
-    void getHtml();
+    QString getHtml(int articleId);
 
     /**
       get the article by the article's id

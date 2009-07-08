@@ -53,9 +53,19 @@ bool Article::getIsRead()
     return this->mIsRead;
 }
 
-void Article::getHtml()
+QString Article::getHtml(int articleId)
 {
-
+    Article article=getArticle(articleId);
+    QString ret="";
+    ret=ret+"<HTML>"+"<H1>"+article.getTitle()+"</H1>"+"\n";
+    ret=ret+"<P>"+"PublishTime: "+article.getPublishDate()+"<Br>";
+    ret=ret+"Author: "+article.getAuthor()+"<Br>";
+    ret=ret+"Category"+article.getCategory()+"<Br>";
+    ret=ret+"</P>";
+    ret=ret+"<P>"+"Summary: "+article.getDescription()+"</P>";
+    ret=ret+"<P>"+"<A href=' "+article.getLink()+" '>"+"阅读全文"+"</A>"+"</P>";
+    ret=ret+"<HTML>";
+    return ret;
 }
 
 QVector<Article> Article::getArticlesByChannelId(int channelId)
@@ -176,6 +186,10 @@ int Article::addArticle(const int channelId,const QString &publishTime, const  Q
 
 void Article::removeArticles(int channelId)
 {
+    QSqlQuery query;
+    query.prepare("delete * from articles where channel_id=:channelId");
+    query.bindValue(":channelId",channelId);
+    query.exec();
 }
 
 QString Article::convertContentType(ContentType contentType)
