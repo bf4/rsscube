@@ -12,14 +12,14 @@ DatabaseController::~DatabaseController()
 {
 }
 
-void DatabaseController::connect()
+void DatabaseController::connect(QString databaseFilename)
 {
-    mDataBase = &QSqlDatabase::addDatabase("QSQLITE");
-    mDataBase->setDatabaseName("rss_cube.db");
-    mDataBase->open();
+    mDataBase = QSqlDatabase::addDatabase("QSQLITE");
+    mDataBase.setDatabaseName(databaseFilename);
+    mDataBase.open();
 }
 
 void DatabaseController::close()
 {
-    mDataBase->close();
+    mDataBase.close();
 }

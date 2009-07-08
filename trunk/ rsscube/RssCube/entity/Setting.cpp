@@ -30,8 +30,7 @@ ReadType Setting::getDisplayType()
 Setting Setting::getSettingInfo()
 {
     QSqlQuery query;
-    query.prepare("SELECT auto_refresh, refresh_interval, display_type"
-                  "FROM settings");
+    query.prepare("SELECT auto_refresh, refresh_interval, display_type FROM settings");
     query.exec();
 
     query.next();
@@ -47,7 +46,7 @@ Setting Setting::getSettingInfo()
 void Setting::changeRefreshSetting(bool autoRefresh ,float refreshInterval)
 {
     QSqlQuery query;
-    query.prepare("UPDATE groups SET auto_refresh=:auto_refresh, refresh_intervarl=:refresh_interval");
+    query.prepare("UPDATE settings SET auto_refresh=:auto_refresh, refresh_interval=:refresh_interval");
 
     query.bindValue(":auto_refresh", autoRefresh);
     query.bindValue(":refresh_interval",refreshInterval);
@@ -58,7 +57,7 @@ void Setting::changeRefreshSetting(bool autoRefresh ,float refreshInterval)
 void Setting::changeDisplaySetting(ReadType displayType)
 {
     QSqlQuery query;
-    query.prepare("UPDATE groups SET display_type=:display_type");
+    query.prepare("UPDATE settings SET display_type=:display_type");
 
     query.bindValue(":display_type", displayType);
 

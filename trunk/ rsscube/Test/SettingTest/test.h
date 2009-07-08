@@ -9,8 +9,13 @@ class Test : public QObject
 {
     Q_OBJECT
 
-private slots:
-    void test();
+public:
+    Test();
+
+private slots:    
+    void getSettingInfo_test();
+    void changeRefreshSetting_test();
+    void changeDisplaySetting_test();
 };
 
 #endif // TEST_H
