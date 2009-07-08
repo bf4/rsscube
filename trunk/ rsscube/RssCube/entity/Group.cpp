@@ -14,10 +14,12 @@ Group::~Group()
 
 int Group::getId()
 {
+    return mId;
 }
 
 QString Group::getName()
 {
+    return mName;
 }
 
 QVector<Group> Group::getRootGroups()
@@ -60,6 +62,15 @@ QVector<Group> Group::getSubGroups(int id)
 
 int Group::addGroup(int parentId, const QString &name)
 {
+    QSqlQuery query;
+    query.prepare("INSERT INTO groups(parent_id,name) "
+                  "VALUES(:parentId,:name) ");
+
+    query.bindValue(":parentId", parentId);
+    query.bindValue(":name", name);
+
+    query.exec();
+    return query.lastInsertId().toInt();
 }
 
 void Group::removeGroup(int id)
