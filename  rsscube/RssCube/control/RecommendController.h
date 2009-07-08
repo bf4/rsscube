@@ -43,8 +43,7 @@ public:
       @param &userChannel
       user recommend channels
       */
-    void setRecommendChannels(const QVector<int> &systemChannels,
-                              const QVector<int> &userChannels);
+    void setRecommendChannels(const QVector<int> &userSelectedChannels);
 
 private:
     RecommendController();

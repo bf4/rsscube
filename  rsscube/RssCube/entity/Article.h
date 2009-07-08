@@ -78,7 +78,7 @@ public:
     /**
      display the article's address on the address line of the browser
      */
-    QString getHtml(int articleId);
+    static QString getHtml(int articleId);
 
     /**
       get the article by the article's id
