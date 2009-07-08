@@ -4,14 +4,17 @@
 #ifndef REFRESHCONTROLLER_H
 #define REFRESHCONTROLLER_H
 
+#include <QObject>
+#include <QVector>
+
 #include "../other/enums.h"
 #include "../other/interfaces.h"
 #include "../entity/ChannelDownloader.h"
 
-#include <QVector>
-
-class RefreshController : IChannelDownloaderObserver
+class RefreshController : public QObject, public IChannelDownloaderObserver
 {
+    Q_OBJECT
+
 public:    
     ~RefreshController();
 
@@ -32,11 +35,16 @@ public:
     void init();
 
     /**
-      Set the oberver.When a channel is downloaded, the doloader will notify the observer.
+      Set the observer. When a channel is refreshed, the controller will notify the observer.
       @param observer
       The observer to notify.
       */
     void setObserver(IRefreshControllerObserver *observer);
+
+    /**
+      Update the refresh setting.
+      */
+    void updateRefreshSeting();
 
     /**
       Start to refresh all channels.
@@ -77,11 +85,17 @@ private:
     /** The queue to save the downloader to start download. */
     QVector<ChannelDownloader*> mDownloadQueue;
 
-    /** The max number the download threads at a same time. */
-    int mDownloadLimit;
-
     /** When a channel is downloaded, the observer will be notified. */
     IRefreshControllerObserver* mObserver;
+
+    /** The number of channels refreshing. */
+    int mRefreshCount;
+
+    /** The max number the download threads at a same time. */
+    enum { DOWNLOAD_LIMIT = 5 };
+
+private slots:
+    void handleTimeout();
 };
 
 #endif // REFRESHCONTROLLER_H

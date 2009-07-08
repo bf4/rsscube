@@ -34,6 +34,15 @@ public:
     QString getUrl();
 
     /**
+      get the channel by id
+      @param channelId
+      the id of the channel
+      @return
+      the channel
+      */
+    static Channel getChannel(int channelId);
+
+    /**
       when fresh, freshing all the Channels
       @return
       return all the newest Channels

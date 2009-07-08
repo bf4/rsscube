@@ -29,6 +29,25 @@ QString Channel::getUrl()
     return this->mUrl;
 }
 
+Channel Channel::getChannel(int channelId)
+{
+    Channel ret;
+
+    QSqlQuery query;    
+    query.prepare("SELECT id, name, url"
+                  "FROM channels WHERE channel_id=:channel_id");
+    query.bindValue(":channel_id", channelId);    
+    query.exec();
+
+    query.next();
+
+    ret.mId=query.value(0).toInt();
+    ret.mName=query.value(1).toString();
+    ret.mUrl=query.value(2).toString();
+
+    return ret;
+}
+
 QVector<Channel> Channel::getAllChannels()
 {
     QVector<Channel> ret;
@@ -68,7 +87,6 @@ QVector<Channel> Channel::getChannelByGroupId(int groupId)
     }
 
     return ret;
-
 }
 
 QVector<Channel> Channel::getSystemRecommendChannels()

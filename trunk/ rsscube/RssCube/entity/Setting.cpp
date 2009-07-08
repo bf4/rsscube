@@ -1,5 +1,7 @@
 // 2009-07-07 孔乂宇 创建框架
 
+#include <QVariant>
+#include <QSqlQuery>
 #include "Setting.h"
 
 Setting::Setting()
@@ -28,16 +30,16 @@ ReadType Setting::getDisplayType()
 Setting Setting::getSettingInfo()
 {
     QSqlQuery query;
-    query.prepra("SELECT auto_refresh, refresh_interval, display_type"
+    query.prepare("SELECT auto_refresh, refresh_interval, display_type"
                   "FROM settings");
     query.exec();
 
     query.next();
 
     Setting setting;
-    setting.mAutoRefresh=query.value(0).toBool();
-    setting.mRefreshInterval=query.value(1).toFloat();
-    setting.mDisplayType=query.value(2).toInt();
+    setting.mAutoRefresh = query.value(0).toBool();
+    setting.mRefreshInterval = query.value(1).toDouble();
+    setting.mDisplayType = (ReadType)query.value(2).toInt();
 
     return setting;
 }

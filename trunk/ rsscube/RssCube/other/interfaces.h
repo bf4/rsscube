@@ -55,8 +55,8 @@ public:
       This function is used to handle this event.
       @param channelId
       The id of the channel refreshed.
-      @param DownloadState
-      The downloadState (Success, Timeout, RssFomatError).
+      @param downloadState
+      The download state(Success, DS_Timeout, DS_RssFormatError).
       */
     virtual void handleChannelRefreshed(int channelId, DownloadState downloadState) = 0;
 };
