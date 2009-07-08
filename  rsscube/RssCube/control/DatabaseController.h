@@ -4,6 +4,7 @@
 #ifndef DATABASECONTROLLER_H
 #define DATABASECONTROLLER_H
 
+
 #include <QSqlDatabase>
 
 class DatabaseController
@@ -24,8 +25,10 @@ public:
 
     /**
       connect the database
+      @param databaseFilename
+      The filename of the database file.
       */
-    void connect();
+    void connect(QString databaseFilename = "rss_cube.db");
 
     /**
       close the database
@@ -35,8 +38,8 @@ public:
 private:
     DatabaseController();
 
-    /** database */
-    QSqlDatabase *mDataBase;
+    /** the database */
+    QSqlDatabase mDataBase;
 };
 
 #endif // DATABASECONTROLLER_H
