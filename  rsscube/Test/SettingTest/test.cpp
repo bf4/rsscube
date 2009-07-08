@@ -1,3 +1,5 @@
+// 2009-07-08 裴小星 编写测试
+
 #include "test.h"
 #include "../../RssCube/control/DatabaseController.h"
 
