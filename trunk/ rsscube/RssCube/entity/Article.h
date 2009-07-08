@@ -1,5 +1,9 @@
 // 2009-07-07 于宝 创建框架
 // 2009-07-07 于宝 添加注释
+//2009－07－08 于宝 修改publishDate类型为QString
+//2009－07－08 于宝  添加Article::removeArticles函数, writeHtml()改为getHtml()
+
+
 
 #ifndef ARTICLE_H
 #define ARTICLE_H
@@ -26,7 +30,7 @@ public:
        @return
        the article's publish time
      */
-    QDateTime getPublishDate();
+    QString getPublishDate();
 
     /**
        get the article's
@@ -66,7 +70,7 @@ public:
     /**
      display the article's address on the address line of the browser
      */
-    void writeHtml();
+    void getHtml();
 
     /**
       get the article by the article's id
@@ -104,15 +108,22 @@ public:
       @return
       the new article's id
       */
-    static int addArticle(const int channelId,const QDateTime &publishTime, const  QString &category,const  QString &author,
+    static int addArticle(const int channelId,const QString &publishTime, const  QString &category,const  QString &author,
                    const  QString &title, const  QString &description, const  QString &link);
+
+     /**
+      remove all articles in the specific channel
+      @param
+      the id of the channel whose articles are to be removed
+      */
+    static void removeArticles(int channelId);
 
 private:
     /** the article's id  */
     int mId;
 
     /** the article's publish time  */
-    QDateTime mPublishDate;
+    QString mPublishDate;
 
     /** the article's  category */
     QString mCatecory;
