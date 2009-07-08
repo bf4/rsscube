@@ -42,7 +42,7 @@ void ChannelController::refreshAllChannels()
 {
 }
 
-void ChannelController::writeArticle(int articleId)
+void ChannelController::getArticleHtml(int articleId)
 {
 }
 

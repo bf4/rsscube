@@ -1,4 +1,5 @@
 // 2009-07-07 于宝 创建框架
+//2009－07－08 于宝 修改publishDate类型为QString
 
 #include <QSqlQuery>
 #include <QVariant>
@@ -16,7 +17,7 @@ int Article::getId()
 {
 }
 
-QDateTime Article::getPublishDate()
+QString Article::getPublishDate()
 {
 }
 
@@ -40,7 +41,7 @@ QString Article::getLink()
 {
 }
 
-void Article::writeHtml()
+void Article::getHtml()
 {
 }
 
@@ -49,7 +50,7 @@ QVector<Article> Article::getArticlesByChannelId(int channelId)
     QVector<Article> ret;
     QSqlQuery query;
     query.prepare("SELECT id,publish_date,category,author,title,description,link"
-                   "FROM articles where channelId=:channelId");
+                   "FROM articles where channel_id=:channelId");
 
     query.bindValue(":channelId",channelId);
     query.exec();
@@ -58,7 +59,7 @@ QVector<Article> Article::getArticlesByChannelId(int channelId)
     {
         Article article;
         article.mId = query.value(0).toInt();
-        article.mPublishDate=query.value(1).toDateTime();
+        article.mPublishDate=query.value(1).toString();  //修改为string类型
         article.mCatecory=query.value(2).toString();
         article.mAuthor=query.value(3).toString();
         article.mTitle=query.value(4).toString();
@@ -78,11 +79,11 @@ QVector<Article> Article::localSearch(MatchType matchType,ReadType readType,Cont
 {
 }
 
-int Article::addArticle(const int channelId,const QDateTime &publishTime, const  QString &category,const  QString &author,
+int Article::addArticle(const int channelId,const QString &publishTime, const  QString &category,const  QString &author,
                    const  QString &title, const  QString &description, const  QString &link)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO articles(channelId,publishTime,category, author,title,description,link) "
+    query.prepare("INSERT INTO articles(channel_id,publishTime,category, author,title,description,link) "
                   "VALUES(:channelId,:publishTime,:category,:author,:title,:description,:link) ");
 
     query.bindValue(":channelId", channelId);
@@ -95,4 +96,8 @@ int Article::addArticle(const int channelId,const QDateTime &publishTime, const 
 
     query.exec();
     return query.lastInsertId().toInt();
+}
+
+void Article::removeArticles(int channelId)
+{
 }

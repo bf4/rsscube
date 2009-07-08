@@ -1,5 +1,6 @@
 //2009-07-07 于宝 创建框架
 //2009-07-07 于宝 添加注释
+//2009-07-07 于宝 writeArticle()改为getArticleHtml()
 
 #ifndef CHANNELCONTROLLER_H
 #define CHANNELCONTROLLER_H
@@ -93,7 +94,7 @@ public:
       to invoke the function writeHtml of the Aarticle class
       @param
       */
-    void writeArticle(int articleId);
+    void getArticleHtml(int articleId);
 
      /**
        to check if a url is a valid url and if the source live up to the RSS standard
