@@ -5,6 +5,7 @@
 #define SEARCHCONTROLLER_H
 
 #include <QVector>
+#include <QString>
 #include "../entity/Group.h"
 #include "../entity/Article.h"
 #include "../other/enums.h"
@@ -33,10 +34,12 @@ public:
       one of the three types:"RT_All"、" RT_Read" and "RT_Unread"
       @param contentType
       one of the four types:"CT_Author"、"CT_Title"、"CT_Url"、"CT_Summary"
+      @param keyword
+      the input word which the user wants to search
       @return
       return the articles that satisfied the conditions
       */
-    QVector<Article> localSearch(MatchType matchType, ReadType readType, ContentType contentType);
+    QVector<Article> localSearch(MatchType matchType, ReadType readType, ContentType contentType, QString keyword);
 
 private:
     SearchController();
