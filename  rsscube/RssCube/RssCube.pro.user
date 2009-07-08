@@ -58,10 +58,8 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >CCACHE_DIR=/var/cache/ccache</value>
-    <value type="QString" >CCACHE_UMASK=002</value>
     <value type="QString" >CVS_RSH=ssh</value>
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-rFMAuqEcPQ,guid=65ba1662daff7ef9e34fb2004a51e63e</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-CtvIqRWxtV,guid=a7d54fe277f1b662e317ff004a4f02a6</value>
     <value type="QString" >DESKTOP_SESSION=default</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
@@ -69,50 +67,55 @@
     <value type="QString" >GDM_LANG=zh_CN.UTF-8</value>
     <value type="QString" >GDM_XSERVER_LOCATION=local</value>
     <value type="QString" >GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString" >GNOME_KEYRING_PID=2504</value>
-    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-tEbnaq/socket</value>
+    <value type="QString" >GNOME_KEYRING_PID=2506</value>
+    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-JZWE1N/socket</value>
     <value type="QString" >GTK_IM_MODULE=scim-bridge</value>
     <value type="QString" >GTK_MODULES=gnomebreakpad</value>
-    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/root/.gtkrc-1.2-gnome2</value>
+    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/yubao/.gtkrc-1.2-gnome2</value>
     <value type="QString" >G_BROKEN_FILENAMES=1</value>
     <value type="QString" >HISTSIZE=1000</value>
-    <value type="QString" >HOME=/root</value>
+    <value type="QString" >HOME=/home/yubao</value>
     <value type="QString" >HOSTNAME=localhost</value>
     <value type="QString" >INPUTRC=/etc/inputrc</value>
+    <value type="QString" >KDEDIRS=/usr</value>
+    <value type="QString" >KDE_IS_PRELINKED=1</value>
     <value type="QString" >LANG=zh_CN.UTF-8</value>
-    <value type="QString" >LD_LIBRARY_PATH=/home/xing/qt/lib/qtcreator:</value>
+    <value type="QString" >LD_LIBRARY_PATH=/opt/qtsdk-2009.02/lib/qtcreator:</value>
     <value type="QString" >LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString" >LOGNAME=root</value>
+    <value type="QString" >LOGNAME=yubao</value>
     <value type="QString" >LS_COLORS=</value>
-    <value type="QString" >MAIL=/var/spool/mail/root</value>
-    <value type="QString" >PATH=/home/xing/qt/qt/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin:/root/bin</value>
-    <value type="QString" >PWD=/root</value>
-    <value type="QString" >QTDIR=/home/xing/qt/qt</value>
+    <value type="QString" >MAIL=/var/spool/mail/yubao</value>
+    <value type="QString" >PATH=/opt/qtsdk-2009.02/qt/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/yubao/bin</value>
+    <value type="QString" >PWD=/home/yubao</value>
+    <value type="QString" >QTDIR=/opt/qtsdk-2009.02/qt</value>
+    <value type="QString" >QTINC=/usr/lib/qt-3.3/include</value>
+    <value type="QString" >QTLIB=/usr/lib/qt-3.3/lib</value>
     <value type="QString" >QT_IM_MODULE=scim</value>
-    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/2506,unix/unix:/tmp/.ICE-unix/2506</value>
+    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/2508,unix/unix:/tmp/.ICE-unix/2508</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=1</value>
-    <value type="QString" >SSH_AGENT_PID=2621</value>
+    <value type="QString" >SSH_AGENT_PID=2628</value>
     <value type="QString" >SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-oEUBHo2506/agent.2506</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-GMsYTP2508/agent.2508</value>
     <value type="QString" >TERM=dumb</value>
-    <value type="QString" >USER=root</value>
+    <value type="QString" >USER=yubao</value>
+    <value type="QString" >USERNAME=yubao</value>
     <value type="QString" >WINDOWPATH=7</value>
-    <value type="QString" >XAUTHORITY=/tmp/.gdmZVI5WU</value>
+    <value type="QString" >XAUTHORITY=/tmp/.gdmB412VU</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/usr/share/gdm/</value>
-    <value type="QString" >XDG_SESSION_COOKIE=5783b5ced29a99a99f017e004a424700-1246881341.18743-797747190</value>
+    <value type="QString" >XDG_SESSION_COOKIE=4665972ce21d5d66c40867004a44b700-1246692004.852482-1805538008</value>
     <value type="QString" >XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
-    <value type="QString" >/home/WorkSpace/ rsscube/RssCube/RssCube.pro</value>
+    <value type="QString" >/home/yubao/ rsscube/RssCube/RssCube.pro</value>
     <value type="QString" >-spec</value>
     <value type="QString" >linux-g++</value>
     <value type="QString" >-r</value>
     <value type="QString" >CONFIG+=debug</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString" >/home/xing/qt/qt/bin/qmake</value>
-   <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/WorkSpace/ rsscube/RssCube</value>
+   <value key="abstractProcess.command" type="QString" >/opt/qtsdk-2009.02/qt/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool" >false</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/yubao/ rsscube/RssCube</value>
    <value key="buildConfiguration" type="int" >2</value>
   </valuemap>
  </data>
@@ -121,10 +124,8 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >CCACHE_DIR=/var/cache/ccache</value>
-    <value type="QString" >CCACHE_UMASK=002</value>
     <value type="QString" >CVS_RSH=ssh</value>
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-rFMAuqEcPQ,guid=65ba1662daff7ef9e34fb2004a51e63e</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-CtvIqRWxtV,guid=a7d54fe277f1b662e317ff004a4f02a6</value>
     <value type="QString" >DESKTOP_SESSION=default</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
@@ -132,38 +133,43 @@
     <value type="QString" >GDM_LANG=zh_CN.UTF-8</value>
     <value type="QString" >GDM_XSERVER_LOCATION=local</value>
     <value type="QString" >GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString" >GNOME_KEYRING_PID=2504</value>
-    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-tEbnaq/socket</value>
+    <value type="QString" >GNOME_KEYRING_PID=2506</value>
+    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-JZWE1N/socket</value>
     <value type="QString" >GTK_IM_MODULE=scim-bridge</value>
     <value type="QString" >GTK_MODULES=gnomebreakpad</value>
-    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/root/.gtkrc-1.2-gnome2</value>
+    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/yubao/.gtkrc-1.2-gnome2</value>
     <value type="QString" >G_BROKEN_FILENAMES=1</value>
     <value type="QString" >HISTSIZE=1000</value>
-    <value type="QString" >HOME=/root</value>
+    <value type="QString" >HOME=/home/yubao</value>
     <value type="QString" >HOSTNAME=localhost</value>
     <value type="QString" >INPUTRC=/etc/inputrc</value>
+    <value type="QString" >KDEDIRS=/usr</value>
+    <value type="QString" >KDE_IS_PRELINKED=1</value>
     <value type="QString" >LANG=zh_CN.UTF-8</value>
-    <value type="QString" >LD_LIBRARY_PATH=/home/xing/qt/lib/qtcreator:</value>
+    <value type="QString" >LD_LIBRARY_PATH=/opt/qtsdk-2009.02/lib/qtcreator:</value>
     <value type="QString" >LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString" >LOGNAME=root</value>
+    <value type="QString" >LOGNAME=yubao</value>
     <value type="QString" >LS_COLORS=</value>
-    <value type="QString" >MAIL=/var/spool/mail/root</value>
-    <value type="QString" >PATH=/home/xing/qt/qt/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin:/root/bin</value>
-    <value type="QString" >PWD=/root</value>
-    <value type="QString" >QTDIR=/home/xing/qt/qt</value>
+    <value type="QString" >MAIL=/var/spool/mail/yubao</value>
+    <value type="QString" >PATH=/opt/qtsdk-2009.02/qt/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/yubao/bin</value>
+    <value type="QString" >PWD=/home/yubao</value>
+    <value type="QString" >QTDIR=/opt/qtsdk-2009.02/qt</value>
+    <value type="QString" >QTINC=/usr/lib/qt-3.3/include</value>
+    <value type="QString" >QTLIB=/usr/lib/qt-3.3/lib</value>
     <value type="QString" >QT_IM_MODULE=scim</value>
-    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/2506,unix/unix:/tmp/.ICE-unix/2506</value>
+    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/2508,unix/unix:/tmp/.ICE-unix/2508</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=1</value>
-    <value type="QString" >SSH_AGENT_PID=2621</value>
+    <value type="QString" >SSH_AGENT_PID=2628</value>
     <value type="QString" >SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-oEUBHo2506/agent.2506</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-GMsYTP2508/agent.2508</value>
     <value type="QString" >TERM=dumb</value>
-    <value type="QString" >USER=root</value>
+    <value type="QString" >USER=yubao</value>
+    <value type="QString" >USERNAME=yubao</value>
     <value type="QString" >WINDOWPATH=7</value>
-    <value type="QString" >XAUTHORITY=/tmp/.gdmZVI5WU</value>
+    <value type="QString" >XAUTHORITY=/tmp/.gdmB412VU</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/usr/share/gdm/</value>
-    <value type="QString" >XDG_SESSION_COOKIE=5783b5ced29a99a99f017e004a424700-1246881341.18743-797747190</value>
+    <value type="QString" >XDG_SESSION_COOKIE=4665972ce21d5d66c40867004a44b700-1246692004.852482-1805538008</value>
     <value type="QString" >XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
@@ -171,7 +177,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/WorkSpace/ rsscube/RssCube</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/yubao/ rsscube/RssCube</value>
   </valuemap>
  </data>
  <data>

@@ -1,4 +1,5 @@
 //2009-07-07 金欢 创建Channel框架
+//2009-07-07 金欢 添加注释
 
 #ifndef CHANNEL_H
 #define CHANNEL_H
@@ -37,7 +38,7 @@ public:
       @return
       return all the newest Channels
       */
-    QVector<Channel> getAllChannel();
+    static QVector<Channel> getAllChannels();
 
     /**
       get all the channels of a specific group by the groupId
@@ -46,21 +47,28 @@ public:
       @return
       return the channels of the group
       */
-    QVector<Channel> getChannelByGroupId(int groupId);
+    static QVector<Channel> getChannelByGroupId(int groupId);
 
     /**
       get the system's recommend channels
       @return
       return the system's recommend channels
       */
-    QVector<Channel> getSystemRecommendChannels();
+    static QVector<Channel> getSystemRecommendChannels();
 
     /**
       get the user's recommend channels
       @return
       return the user's recommend channels
       */
-    QVector<Channel> getUserRecommendChannels();
+    static QVector<Channel> getUserRecommendChannels();
+
+    /**
+      set the channels' recommend(SystemRecommend or UserRecommend)
+      @param userSelectedChannels
+      the new recommend of channel
+      */
+    static void setRecommendChannels(const QVector<int> &userSelectedChannels);
 
     /**
       add new channel
@@ -73,14 +81,14 @@ public:
       @return
       return the new channel's id
       */
-    int addChannel(int groupId, const QString name, const QString url);
+    static int addChannel(int groupId, const QString name, const QString url);
 
     /**
       remove the channel by id
       @param id
       the id of the channel which is going to be deleted
       */
-    void removeChannel(int id);
+    static void removeChannel(int id);
 
     /**
       set the channel's new parent group
@@ -89,7 +97,7 @@ public:
       @param groupId
       the new group's id
       */
-    void setGroup(int id, int groupId);
+    static void setGroup(int id, int groupId);
 
     /**
       set the channel's new name
@@ -98,22 +106,12 @@ public:
       @param name
       the new name of the chosen id
       */
-    void rename(int id, const QString &name);
-
-    /**
-      set the recommend channels
-      @param systemChannels
-      the id of the systemChannels
-      @param userChannels
-      the id of the userChannels
-      */
-    void setRecommendChannels(const QVector<int> &systemChannels, const QVector<int> &userChannels);
+    static void rename(int id, const QString &name);
 
 private:
     int mId;              /** the id of the Channels */
     QString mName;      /** the name of the Channels */
     QString mUrl;         /** the url of the Channels */
-
 
 };
 
