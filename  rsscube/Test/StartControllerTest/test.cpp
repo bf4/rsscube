@@ -1,8 +1,21 @@
 #include "test.h"
 
-void Test::test()
+Test::Test()
 {
-    QCOMPARE(0, 0);
+
 }
+
+void Test::changeRefreshSettingBeforeStart_test()
+{
+    Setting::changeRefreshSetting(true, 100.f);
+}
+
+void Test::changeRefreshSettingAfterStart_test()
+{
+    StartController::getInstance().init();
+    Setting::changeRefreshSetting(true, 100.f);
+}
+
+
 
 QTEST_MAIN(Test)

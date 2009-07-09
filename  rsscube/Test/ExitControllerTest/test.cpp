@@ -1,8 +1,14 @@
 #include "test.h"
 
-void Test::test()
+void Test::exitBeforeStart_test()
 {
-    QCOMPARE(0, 0);
+    ExitController::getInstance().exit();
+}
+
+void Test::exitAfterStart_test()
+{
+    StartController::getInstance().init();
+    ExitController::getInstance().exit();
 }
 
 QTEST_MAIN(Test)
