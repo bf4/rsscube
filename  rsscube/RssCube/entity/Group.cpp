@@ -58,7 +58,7 @@ int Group::addGroup(int parentId, const QString &name)
     return query.lastInsertId().toInt();
 }
 
-void Group::removeGroup(int id)
+void Group::remove(int id)
 {
     QSqlQuery query;
 

@@ -8,5 +8,8 @@ TARGET = GroupControllerTest
 CONFIG += console
 CONFIG -= app_bundle
 TEMPLATE = app
-SOURCES += test.cpp ../../RssCube/control/GroupController.cpp
-HEADERS += test.h ../../RssCube/control/GroupController.h
+SOURCES += test.cpp ../../RssCube/control/GroupController.cpp ../../RssCube/control/DatabaseController.cpp \
+             ../../RssCube/entity/Group.cpp
+
+HEADERS += test.h ../../RssCube/control/GroupController.h ../../RssCube/control/DatabaseController.h \
+             ../../RssCube/entity/Group.h
