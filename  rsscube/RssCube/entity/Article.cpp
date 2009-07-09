@@ -131,23 +131,21 @@ QVector<Article> Article::localSearch(MatchType matchType,ReadType readType,Cont
     if(readType==RT_All)
     {
         query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
-                   "FROM articles where :contentType like :keyword");
-        query.bindValue(":contentType",conType);
+                   "FROM articles where " + conType + " like :keyword");
         query.bindValue(":keyword",searchWord);
         query.exec();
     }
     else
     {
-        QString reType;
+        bool reType;
         if(readType==RT_Read)
-            reType="true";
-        else reType="false";
+            reType=true;
+        else reType=false;
 
         query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
-                       "FROM articles where read_type=:readType and :contentType like :keyword");
-        query.bindValue(":readType",reType);
-        query.bindValue(":contentType",conType);
-        query.bindValue(":keyword",searchWord);
+                       "FROM articles where read_type=:readType and " + conType + " like :keyword ");
+        query.bindValue(":readType", reType);
+        query.bindValue(":keyword", searchWord);
 
         query.exec();
     }
@@ -171,6 +169,7 @@ int Article::addArticle(const int channelId,const QString &publishTime, const  Q
                    const  QString &title, const  QString &description, const  QString &link)
 {
     QSqlQuery query;
+
     query.prepare("INSERT INTO articles(channel_id,publish_date,category, author,title,description,link) "
                   "VALUES(:channelId,:publishTime,:category,:author,:title,:description,:link) ");
 
@@ -183,6 +182,7 @@ int Article::addArticle(const int channelId,const QString &publishTime, const  Q
     query.bindValue(":link", link);
 
     query.exec();
+
     return query.lastInsertId().toInt();
 }
 
