@@ -1,10 +1,10 @@
 // 2009-07-07 于宝 创建框架
 // 2009-07-07 于宝 添加注释
-//2009－07－08 于宝 修改publishDate类型为QString
-//2009－07－08 于宝  添加Article::removeArticles函数, writeHtml()改为getHtml()
-//下午添加 isRead,getIsRead()  修改localSearch（），添加关键字，channelController待更改,
-//添加函数convertContentType() ,getHtml(int articleId)
-
+// 2009－07－08 于宝 修改publishDate类型为QString
+// 2009－07－08 于宝  添加Article::removeArticles函数, writeHtml()改为getHtml()
+// 下午添加 isRead,getIsRead()  修改localSearch（），添加关键字，channelController待更改,
+// 添加函数convertContentType() ,getHtml(int articleId)
+// 2009-07-09 金欢 测试通过
 
 #ifndef ARTICLE_H
 #define ARTICLE_H
