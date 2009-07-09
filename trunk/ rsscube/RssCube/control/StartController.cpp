@@ -15,6 +15,7 @@ StartController::~StartController()
 
 void StartController::init()
 {    
-    DatabaseController::getInstance().connect();
+    DatabaseController databaseController = DatabaseController::getInstance();
+    databaseController.connect();
     RefreshController::getInstance().init();
 }

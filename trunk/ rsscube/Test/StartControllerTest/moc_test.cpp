@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'test.h'
 **
-** Created: Tue Jul 7 08:30:51 2009
+** Created: Thu Jul 9 11:36:41 2009
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,19 +23,21 @@ static const uint qt_meta_data_Test[] = {
        2,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   12, // methods
+       2,   12, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
 
  // slots: signature, parameters, type, tag, flags
        6,    5,    5,    5, 0x08,
+      45,    5,    5,    5, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Test[] = {
-    "Test\0\0test()\0"
+    "Test\0\0changeRefreshSettingBeforeStart_test()\0"
+    "changeRefreshSettingAfterStart_test()\0"
 };
 
 const QMetaObject Test::staticMetaObject = {
@@ -63,10 +65,11 @@ int Test::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: test(); break;
+        case 0: changeRefreshSettingBeforeStart_test(); break;
+        case 1: changeRefreshSettingAfterStart_test(); break;
         default: ;
         }
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }

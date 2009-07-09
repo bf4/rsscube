@@ -14,6 +14,7 @@ ExitController::~ExitController()
 
 void ExitController::exit()
 {
-    DatabaseController::getInstance().close();
+    DatabaseController databseController = DatabaseController::getInstance();
+    databseController.close();
 }
 
