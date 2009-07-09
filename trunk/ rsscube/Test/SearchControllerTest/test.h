@@ -9,8 +9,11 @@ class Test : public QObject
 {
     Q_OBJECT
 
+public:
+    Test();
+
 private slots:
-    void test();
+    void localSearch_test();
 };
 
 #endif // TEST_H
