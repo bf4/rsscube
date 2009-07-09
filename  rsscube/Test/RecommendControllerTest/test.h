@@ -9,8 +9,13 @@ class Test : public QObject
 {
     Q_OBJECT
 
+public:
+    Test();
+
 private slots:
-    void test();
+    void getSystemRecommendChannels_test();
+    void getUserRecommendChannels_test();
+    void setRecommendChannels_test();
 };
 
 #endif // TEST_H
