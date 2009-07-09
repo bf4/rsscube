@@ -12,17 +12,22 @@ SettingController::~SettingController()
 
 void SettingController::changeRreshSetting(bool autoRefresh, float refreshInterval)
 {
+    Setting::changeRefreshSetting(autoRefresh,refreshInterval);
 }
 
 void SettingController::changeDisplaySetting(ReadType readType)
 {
+    Setting::changeDisplaySetting(readType);
+    mObserver->handleDisplaySettingChanged(readType);
 }
 
 Setting SettingController::getSetting()
 {
+    return Setting::getSettingInfo();
 }
 
 void SettingController::setObserver(ISettingControllerObserver* observer)
 {
+    mObserver = observer;
 }
 
