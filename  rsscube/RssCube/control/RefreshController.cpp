@@ -10,7 +10,6 @@ RefreshController::RefreshController() : QObject(NULL)
 {
     mTimer = new QTimer();    
     connect(mTimer, SIGNAL(timeout()), this, SLOT(handleTimeout()));
-
     mRefreshCount = 0;
 }
 
@@ -57,7 +56,7 @@ void RefreshController::refreshAll()
     {
         ChannelDownloader* downloader = new ChannelDownloader();
         downloader->setObserver(this);
-        downloader->setChannelToDownload(channels.at(0));
+        downloader->setChannelToDownload(channels.at(i));
         mDownloadQueue.append(downloader);
     }
 
