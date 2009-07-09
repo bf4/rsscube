@@ -5,6 +5,7 @@
 #define CHANNELDOWNLOADER_H
 
 #include <QObject>
+#include <QString>
 #include <QHttp>
 #include <QBuffer>
 #include <QTimer>
@@ -29,7 +30,7 @@ public:
     ~ChannelDownloader();
 
     /**
-      Set the oberver.When a channel is downloaded, the doloader will notify the observer.
+      Set the oberver. When a channel is downloaded, the doloader will notify the observer.
       @param observer
       The observer to notify.
       */
@@ -48,6 +49,13 @@ public:
       The id of the channel to download.
       */
     void downloadChannelAsync();
+
+    /**
+      Start to check the url.
+      @param url
+      The url to check.
+      */
+    void checkUrlAsync(const QString & urlString);
 
 private:
 
@@ -81,6 +89,9 @@ private:
 
     /** The channel to refresh. */
     Channel mChannel;
+
+    /** The id of the channel */
+    int mChannelId;
 
     /** If set to false, all downloaded articles will not be added to the database. */
     bool mWriteDb;

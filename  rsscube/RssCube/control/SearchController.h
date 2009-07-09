@@ -20,7 +20,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const SearchController & getInstance()
+    static SearchController & getInstance()
     {
         static SearchController instance;
         return instance;

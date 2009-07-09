@@ -15,6 +15,12 @@ public:
     virtual ~IChannelDownloaderObserver() {}
 
     /**
+      When start to download the channel,
+      the observer will be notified.
+      */
+    virtual void handleStartDownload(int channelId) = 0;
+
+    /**
       When the downloader compelete to download a channel,
       the observer will be notified.
       This function is used to handle this event.
@@ -49,6 +55,14 @@ class IRefreshControllerObserver
 
 public:
     virtual ~IRefreshControllerObserver() {}
+
+    /**
+      When start to refresh the channel,
+      the observer will be notified.
+      @param channelId
+      The id of the channel to refresh.
+      */
+    virtual void handleStartRefresh(int channelId) = 0;
 
     /**
       When the channel refreshed, the observer will be notified.

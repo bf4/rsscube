@@ -37,8 +37,27 @@ void ChannelDownloader::setChannelToDownload(const Channel & channelToDownload)
 }
 
 void ChannelDownloader::downloadChannelAsync()
-{    
+{
+    mChannelId = mChannel.getId();
+
+    mObserver->handleStartDownload(mChannelId);
+
     QUrl url(mChannel.getUrl());
+    mHttp->setHost(url.host(), url.port(80));
+
+    mBuffer->open(QIODevice::WriteOnly);
+
+    mHttp->get(url.path(), mBuffer);
+    mHttp->close();
+
+    mTimer->start(MAX_DOWNLOAD_TIME * 1000);
+}
+
+void ChannelDownloader::checkUrlAsync(const QString & urlString)
+{
+    mChannelId = 0;
+
+    QUrl url(urlString);
     mHttp->setHost(url.host(), url.port(80));
 
     mBuffer->open(QIODevice::WriteOnly);
@@ -57,7 +76,7 @@ void ChannelDownloader::parseRss(const QString & rssXml)
     const QDomElement & channelElement = rssDoc.documentElement().firstChildElement("channel");
     if (channelElement.isNull())
     {
-        mObserver->handleChannelDownloaded(mChannel.getId(), DS_RssFormatError, this);
+        mObserver->handleChannelDownloaded(mChannelId, DS_RssFormatError, this);
     }
     else
     {
@@ -69,7 +88,7 @@ void ChannelDownloader::parseChannelElement(const QDomElement & channelElement)
 {
     if (mWriteDb)
     {
-        Article::removeArticles(mChannel.getId());
+        Article::removeArticles(mChannelId);
 
         QDomNode rssChannelChild = channelElement.firstChild();
 
@@ -80,7 +99,7 @@ void ChannelDownloader::parseChannelElement(const QDomElement & channelElement)
         }
     }
 
-    mObserver->handleChannelDownloaded(mChannel.getId(), DS_Success, this);
+    mObserver->handleChannelDownloaded(mChannelId, DS_Success, this);
 }
 
 void ChannelDownloader::parseChannelChildElement(const QDomElement & item)
@@ -94,7 +113,7 @@ void ChannelDownloader::parseChannelChildElement(const QDomElement & item)
         QString description  = item.firstChildElement("description").text();
         QString link = item.firstChildElement("link").text();
 
-        Article::addArticle(mChannel.getId(), publishDate, category, author, title, description, link);
+        Article::addArticle(mChannelId, publishDate, category, author, title, description, link);
     }
 }
 
@@ -102,7 +121,7 @@ void ChannelDownloader::httpDownloaded(bool error)
 {
     if (error)
     {
-        mObserver->handleChannelDownloaded(mChannel.getId(), DS_Timeout, this);
+        mObserver->handleChannelDownloaded(mChannelId, DS_Timeout, this);
     }
     else
     {

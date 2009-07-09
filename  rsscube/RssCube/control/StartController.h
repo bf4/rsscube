@@ -14,7 +14,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const StartController & getInstance()
+    static StartController & getInstance()
     {
         static StartController instance;
         return instance;

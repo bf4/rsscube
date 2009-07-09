@@ -23,7 +23,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const RefreshController & getInstance()
+    static RefreshController & getInstance()
     {
         static RefreshController instance;
         return instance;
@@ -57,6 +57,13 @@ public:
       The id of the channel to refresh.
       */
     void refresh(int channelId);
+
+    /**
+      When start to refresh the channel,
+      the observer will be notified.
+
+      */
+    void handleStartDownload(int channelId);
 
     /**
       For the refresh controller will register as a observer of channel downloaders,

@@ -16,7 +16,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const RecommendController & getInstance()
+    static RecommendController & getInstance()
     {
         static RecommendController instance;
         return instance;

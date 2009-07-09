@@ -17,7 +17,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const DatabaseController & getInstance()
+    static DatabaseController & getInstance()
     {
         static DatabaseController instance;
         return instance;

@@ -85,6 +85,11 @@ void RefreshController::refresh(int channelId)
     downloader->downloadChannelAsync();
 }
 
+void RefreshController::handleStartDownload(int channelId)
+{
+    mObserver->handleStartRefresh(channelId);
+}
+
 void RefreshController::handleChannelDownloaded(int channelId, DownloadState downloadState, ChannelDownloader*downloaderToDelete)
 {
     mObserver->handleChannelRefreshed(channelId, downloadState);
