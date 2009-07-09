@@ -1,5 +1,6 @@
 // 2009-07-07 于宝 创建框架
-//2009－07－08 于宝 修改publishDate类型为QString
+// 2009-07-08 于宝 实现函数
+// 2009－07－08 于宝 修改publishDate类型为QString
 
 #include <QSqlQuery>
 #include <QVariant>
