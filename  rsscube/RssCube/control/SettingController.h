@@ -1,5 +1,6 @@
 // 2009-07-07 孔乂宇 创建框架
 // 2009-07-07 孔乂宇 添加注释
+// 2009-07-09 裴小星 测试通过
 
 #ifndef SETTINGCONTROLLER_H
 #define SETTINGCONTROLLER_H

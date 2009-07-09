@@ -1,4 +1,5 @@
 // 2009-07-07 孔乂宇 创建框架
+// 2009-07-09 孔乂宇 实现函数
 
 #include "SettingController.h"
 
