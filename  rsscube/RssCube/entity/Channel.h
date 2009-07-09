@@ -91,7 +91,7 @@ public:
       @return
       return the new channel's id
       */
-    static int addChannel(int groupId, const QString name, const QString url);
+    static int addChannel(int &groupId, const QString &name, const QString &url);
 
     /**
       remove the channel by id

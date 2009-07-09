@@ -55,12 +55,16 @@ bool Article::getIsRead()
 
 QString Article::getHtml(int articleId)
 {
+    // ＜head＞
+  //＜meta http-equiv="content-Type" content="text/html; charset=gb2312"＞
+  //＜/head＞
     Article article=getArticle(articleId);
     QString ret="";
     ret=ret+"<HTML>"+"<H1>"+article.getTitle()+"</H1>"+"\n";
+    ret=ret+"<HEAD>"+"<META http-equiv=\"content-Type\" content=\"text/html; charset=utf-8\">"+"</HEAD>";
     ret=ret+"<P>"+"PublishTime: "+article.getPublishDate()+"<Br>";
     ret=ret+"Author: "+article.getAuthor()+"<Br>";
-    ret=ret+"Category"+article.getCategory()+"<Br>";
+    ret=ret+"Category: "+article.getCategory()+"<Br>";
     ret=ret+"</P>";
     ret=ret+"<P>"+"Summary: "+article.getDescription()+"</P>";
     ret=ret+"<P>"+"<A href=' "+article.getLink()+" '>"+"阅读全文"+"</A>"+"</P>";
@@ -137,13 +141,13 @@ QVector<Article> Article::localSearch(MatchType matchType,ReadType readType,Cont
     }
     else
     {
-        bool reType;
+        QString reType;
         if(readType==RT_Read)
-            reType=true;
-        else reType=false;
+            reType="True";
+        else reType="False";
 
         query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
-                       "FROM articles where read_type=:readType and " + conType + " like :keyword ");
+                      "FROM articles where read_type=:readType and " + conType + " like :keyword ");
         query.bindValue(":readType", reType);
         query.bindValue(":keyword", searchWord);
 

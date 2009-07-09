@@ -144,7 +144,7 @@ void Channel::setRecommendChannels(const QVector<int> &userSelectedChannels)
     }
 }
 
-int Channel::addChannel(int groupId, const QString  name, const QString url)
+int Channel::addChannel(int &groupId, const QString  &name, const QString &url)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO channels(group_id, name, url, recommend) "

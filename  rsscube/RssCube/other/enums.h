@@ -33,7 +33,7 @@ enum ContentType
     CT_Author,
     CT_Title,
     CT_Url,
-    CT_Summary
+    CT_Summary,
 };
 
 #endif // ENUM_H
