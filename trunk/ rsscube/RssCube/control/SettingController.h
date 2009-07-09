@@ -18,7 +18,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const SettingController & getInstance()
+    static SettingController & getInstance()
     {
         static SettingController instance;
         return instance;

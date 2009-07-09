@@ -14,7 +14,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const ExitController & getInstance()
+    static ExitController & getInstance()
     {
         static ExitController instance;
         return instance;

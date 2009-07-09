@@ -19,7 +19,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const ChannelController & getInstance()
+    static ChannelController & getInstance()
     {
         static ChannelController instance;
         return instance;

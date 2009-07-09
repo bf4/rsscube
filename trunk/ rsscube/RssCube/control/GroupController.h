@@ -18,7 +18,7 @@ public:
       @return
       The instance of the controller.
       */
-    static const GroupController & getInstance()
+    static GroupController & getInstance()
     {
         static GroupController instance;
         return instance;

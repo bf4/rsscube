@@ -1,6 +1,5 @@
 // 2009-07-07 金欢 创建框架
 // 2009-07-08 金欢 函数实现
-// 2009-07-08 裴小星 修改函数 getChannel
 
 #include <QSqlQuery>
 #include <QVector>
@@ -94,7 +93,7 @@ QVector<Channel> Channel::getSystemRecommendChannels()
     QSqlQuery query;
     Channel channel;
     query.prepare("SELECT id, name, url "
-                  "FROM channel WHERE recommend=1");
+                  "FROM channels WHERE recommend=1");
     query.exec();
 
     while(query.next())
@@ -113,7 +112,7 @@ QVector<Channel> Channel::getUserRecommendChannels()
     QSqlQuery query;
     Channel channel;
     query.prepare("SELECT id, name, url "
-                  "FROM channel WHERE recommend=2");
+                  "FROM channels WHERE recommend=2");
     query.exec();
 
     while(query.next())
@@ -135,12 +134,12 @@ void Channel::setRecommendChannels(const QVector<int> &userSelectedChannels)
                  "WHERE recommend=2");
     query.exec();
 
-    for (int i =0; userSelectedChannels.size(); ++i)
+    for (int i =0; i < userSelectedChannels.size(); ++i)
     {
-        //userSelectedChannels.at(i);
         query.prepare("UPDATE channels "
                     "SET recommend=2 "
-                    "WHERE id=userSelectedChannels.at(i)");
+                    "WHERE id=:id");
+        query.bindValue(":id", userSelectedChannels.at(i));
         query.exec();
     }
 }
@@ -148,8 +147,8 @@ void Channel::setRecommendChannels(const QVector<int> &userSelectedChannels)
 int Channel::addChannel(int groupId, const QString  name, const QString url)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO channels(group_id, name, url) "
-                  "VALUES(:groupId, :name, :url)");
+    query.prepare("INSERT INTO channels(group_id, name, url, recommend) "
+                  "VALUES(:groupId, :name, :url, 0)");
     query.bindValue(":groupId",groupId);
     query.bindValue(":name",name);
     query.bindValue(":url",url);
@@ -161,7 +160,7 @@ int Channel::addChannel(int groupId, const QString  name, const QString url)
 void Channel::removeChannel(int id)
 {
     QSqlQuery query;
-    query.prepare("DELETE * FROM channels "
+    query.prepare("DELETE FROM channels "
                   "WHERE id=:id");
     query.bindValue(":id",id);
     query.exec();
