@@ -171,7 +171,7 @@ int Article::addArticle(const int channelId,const QString &publishTime, const  Q
                    const  QString &title, const  QString &description, const  QString &link)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO articles(channel_id,publishTime,category, author,title,description,link) "
+    query.prepare("INSERT INTO articles(channel_id,publish_date,category, author,title,description,link) "
                   "VALUES(:channelId,:publishTime,:category,:author,:title,:description,:link) ");
 
     query.bindValue(":channelId", channelId);
