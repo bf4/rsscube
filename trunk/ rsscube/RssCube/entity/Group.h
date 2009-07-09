@@ -53,7 +53,7 @@ public:
       @param id
       group's id
       */
-    static void removeGroup(int id);
+    static void remove(int id);
 
     /**
       rename one group

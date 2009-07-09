@@ -1,5 +1,6 @@
 // 2009-07-07  金欢  创建框架
 // 2009-07-07  金欢  添加注释
+// 2009-07-08  裴小星 测试通过
 
 #ifndef GROUPCONTROLLER_H
 #define GROUPCONTROLLER_H
@@ -46,10 +47,10 @@ public:
 
     /**
       delete the group of the chosen group, including all the children it has
-      @param id
-      the id of the channel which is going to be deleted
+      @param groupId
+      the id of the group which is going to be deleted
       */
-    void remove(int id);
+    void removeGroup(int groupId);
 
     /**
       drag the group to its new parent group
