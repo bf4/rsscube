@@ -96,21 +96,23 @@ QVector<Article> Article::getArticlesByChannelId(int channelId)
 
 Article Article::getArticle(int id)
 {
-    QSqlQuery query;
+    QSqlQuery query;\
+    Article article;
     query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
                    "FROM articles where id=:id");
     query.bindValue(":id",id);
     query.exec();
-    Article article;
-    article.mId = query.value(0).toInt();
-    article.mPublishDate=query.value(1).toString();  //修改为string类型
-    article.mCatecory=query.value(2).toString();
-    article.mAuthor=query.value(3).toString();
-    article.mTitle=query.value(4).toString();
-    article.mDescription=query.value(5).toString();
-    article.mLink=query.value(6).toString();
-    article.mIsRead=query.value(7).toBool();
-
+    if(query.next())
+    {
+        article.mId = query.value(0).toInt();
+        article.mPublishDate=query.value(1).toString();  //修改为string类型
+        article.mCatecory=query.value(2).toString();
+        article.mAuthor=query.value(3).toString();
+        article.mTitle=query.value(4).toString();
+        article.mDescription=query.value(5).toString();
+        article.mLink=query.value(6).toString();
+        article.mIsRead=query.value(7).toBool();
+    }
     return article;
 }
 
@@ -187,7 +189,7 @@ int Article::addArticle(const int channelId,const QString &publishTime, const  Q
 void Article::removeArticles(int channelId)
 {
     QSqlQuery query;
-    query.prepare("delete * from articles where channel_id=:channelId");
+    query.prepare("delete from articles where channel_id=:channelId");
     query.bindValue(":channelId",channelId);
     query.exec();
 }
