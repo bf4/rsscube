@@ -73,6 +73,12 @@ public:
       The download state(Success, DS_Timeout, DS_RssFormatError).
       */
     virtual void handleChannelRefreshed(int channelId, DownloadState downloadState) = 0;
+
+    /**
+      When all channels strat to refresh, the observer will be notified.
+      This function is used to handle this event.
+      */
+    virtual void handleStartRefreshAll() = 0;
 };
 
 class ISettingControllerObserver

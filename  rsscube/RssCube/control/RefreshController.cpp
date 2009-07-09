@@ -51,6 +51,8 @@ void RefreshController::updateRefreshSeting()
 
 void RefreshController::refreshAll()
 {
+    mObserver->handleStartRefreshAll();
+
     QVector<Channel> channels = Channel::getAllChannels();
     for (int i = 0; i < channels.size(); ++i)
     {

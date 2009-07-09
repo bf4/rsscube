@@ -26,17 +26,17 @@ int GroupController::addGroup(int parentId, const QString &name)
 
 void GroupController::remove(int id)
 {
-    return Group::removeGroup(id);
+     Group::removeGroup(id);
 }
 
 void GroupController::dragGroup(int groupId, int newParentId)
 {
-   return Group::setParent(groupId,newParentId);
+    Group::setParent(groupId,newParentId);
 }
 
 void GroupController::renameGroup(int id, const QString &newName)
 {
-    return Group::renameGroup(id,newName);
+     Group::renameGroup(id,newName);
 }
 
 
