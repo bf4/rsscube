@@ -30,6 +30,8 @@ QVector<Group> Group::getSubGroups(int id)
                    "FROM groups "
                    "WHERE parent_id = :id");
 
+    query.bindValue(":id",id);
+
     query.exec();
 
     while(query.next())
@@ -39,6 +41,8 @@ QVector<Group> Group::getSubGroups(int id)
         group.mName=query.value(1).toString();
         tmp.push_back(group);
     }
+
+    return tmp;
 }
 
 int Group::addGroup(int parentId, const QString &name)
@@ -58,7 +62,7 @@ void Group::removeGroup(int id)
 {
     QSqlQuery query;
 
-    query.prepare("DELETE * FROM groups "
+    query.prepare("DELETE FROM groups "
                   "WHERE id=:id");
 
     query.bindValue(":id",id);
@@ -75,7 +79,7 @@ void Group::renameGroup(int id, const QString &name)
                    "WHERE id = :id");
 
     query.bindValue(":id",id);
-    query.bindValue(":name",id);
+    query.bindValue(":name",name);
 
     query.exec();
 }
@@ -84,7 +88,7 @@ void Group::setParent(int id, int parentId)
 {
     QSqlQuery query;
 
-    query.prepare("UPDATE channels "
+    query.prepare("UPDATE groups "
                   "SET parent_id=:parentId "
                   "WHERE id=:id ");
 

@@ -9,8 +9,15 @@ class Test : public QObject
 {
     Q_OBJECT
 
+public:
+    Test();
+
 private slots:
-    void test();
+    void getSubGroups_test();
+    void addGroup_test();
+    void removeGroup_test();
+    void renameGroup_test();
+    void setParent_test();
 };
 
 #endif // TEST_H
