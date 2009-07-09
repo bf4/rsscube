@@ -1,5 +1,5 @@
 // 2009-07-07 吴双 创建框架
-// 2009-07-09 裴小星 测试通过
+// 2009-07-09 裴小星 实现函数
 
 #include "StartController.h"
 #include "DatabaseController.h"
