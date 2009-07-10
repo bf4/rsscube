@@ -19,13 +19,13 @@ Test::Test()
 
 void Test::getHtml_test()
 {
-    /*QString ret=Article::getHtml(1);
-    QFile file("/home/yubao/out");
+    QString ret=Article::getHtml(1);
+    QFile file("out.txt");
     if(file.open(QIODevice::WriteOnly))
     {
         QTextStream out(&file);
         out<<ret<<"\n";
-    }*/
+    }
 }
 
 void Test::getArticlesByChannelId_test()
@@ -58,7 +58,7 @@ void Test::localSearch_test()
 
 void Test::addArticle_test()
 {
-    Article::addArticle(1,QString("2009-07-09 20:29:21"),QString(""),QString(""),QString("中国国际消费电子博览会青岛开幕 带来数百亿订单  "),QString("新华网青岛７月９日电（记者李紫恒）主题为“全球共享中国机会”的“２００９中国国际消费电子博览会”，９日在青岛国际会展中心开幕。据介绍，全球３０多个国家和地区的７００多家采购商带来数百亿元的采购订单"),QString(" http://finance.people.com.cn/GB/9626633.html"));
+   // Article::addArticle(1,QString("2009-07-09 20:29:21"),QString(""),QString(""),QString("中国国际消费电子博览会青岛开幕 带来数百亿订单  "),QString("新华网青岛７月９日电（记者李紫恒）主题为“全球共享中国机会”的“２００９中国国际消费电子博览会”，９日在青岛国际会展中心开幕。据介绍，全球３０多个国家和地区的７００多家采购商带来数百亿元的采购订单"),QString(" http://finance.people.com.cn/GB/9626633.html"));
     //QString title = item.firstChildElement("title").text();
     //QString publishDate = item.firstChildElement("pubDate").text();
     //QString author = item.firstChildElement("author").text();
@@ -68,7 +68,7 @@ void Test::addArticle_test()
 
 
 
-    Article::addArticle(mChannelId, publishDate, category, author, title, description, link);
+    //Article::addArticle(mChannelId, publishDate, category, author, title, description, link);
 
 
 
