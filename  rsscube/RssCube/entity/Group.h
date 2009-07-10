@@ -15,61 +15,61 @@ public:
     ~Group();
 
     /**
-      get the current group's Id
+      Get the id of current group.
       @return
-      the current group's Id
+      The id of current group.
       */
     int getId();
 
     /**
-      get the current group's name
+      Get the name of current group.
       @return
-      the current group's name
+      The name of current group.
       */
     QString getName();
 
     /**
-      get one group's child groups by id
+      Get groups included in the specif group.
       @param id
-      one group's id
+      One group's id
       @return
-      the groups collection
+      The groups collection
       */
     static QVector<Group> getSubGroups(int id);
 
     /**
-      add one group with its name and parent group's id
+      Add one group with its name and parent group's id
       @param parentId
-      parent group's id
+      Parent group's id
       @param name
-      new group's name
+      New group's name
       @return
-      new group's id
+      New group's id
       */
     static int addGroup(int parentId, const QString &name);
 
     /**
-      remove group by id
+      Remove group by id
       @param id
-      group's id
+      Group's id
       */
     static void remove(int id);
 
     /**
-      rename one group
+      Rename one group
       @param id
-      the group's id
+      The group's id
       @param name
-      the group's new name
+      The group's new name
       */
     static void renameGroup(int id, const QString &name);
 
     /**
-      change one group's parent group
+      Change one group's parent group
       @param id
-      the group's id
+      The group's id
       @param parentId
-      parent group's id
+      Parent group's id
       */
     static void setParent(int id, int parentId);
 
