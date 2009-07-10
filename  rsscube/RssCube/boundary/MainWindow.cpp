@@ -14,6 +14,8 @@ using namespace std;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow)
 {
+    ui->setupUi(this);
+
     /*
     ui->setupUi(this);
     DatabaseController db=DatabaseController::getInstance();
@@ -35,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fresher.init();
     SettingController::getInstance().changeRreshSetting(true,1);
     */
-
+/*
     ui->setupUi(this);
     DatabaseController db = DatabaseController::getInstance();
     db.connect();
@@ -43,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ChannelController & controller = ChannelController::getInstance();
     controller.setObserver(this);
     controller.checkUrl("http://www.people.com.cn/rss/finance.xml");
-
+*/
   // fresher.refreshAll();
 }
 
@@ -51,7 +53,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+/*
 void MainWindow::handleUrlChecked(DownloadState downloadState)
 {
     QString str="";
@@ -65,7 +67,7 @@ void MainWindow::handleUrlChecked(DownloadState downloadState)
    QLabel *label = new QLabel();
    label->setText(str);
    label->show();
-}
+}*/
 
 /*
 void MainWindow::handleStartDownload(int channelId)
