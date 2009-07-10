@@ -113,6 +113,13 @@ void ChannelDownloader::parseChannelChildElement(const QDomElement & item)
         QString description  = item.firstChildElement("description").text();
         QString link = item.firstChildElement("link").text();
 
+        if (title.isNull()) { title = ""; }
+        if (publishDate.isNull()) { publishDate = ""; }
+        if (author.isNull()) { author = ""; }
+        if (category.isNull()) { category = ""; }
+        if (description.isNull()) { description = ""; }
+        if (link.isNull()) { link = ""; }
+
         Article::addArticle(mChannelId, publishDate, category, author, title, description, link);
     }
 }

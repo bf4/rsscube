@@ -1,5 +1,6 @@
 // 2009-07-07 裴小星 创建框架
 // 2009-07-07 裴小星 添加注释
+// 2009-07-09 于宝 测试通过
 
 #ifndef CHANNELDOWNLOADER_H
 #define CHANNELDOWNLOADER_H
