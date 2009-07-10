@@ -1,5 +1,6 @@
 // 2009-07-07 裴小星 创建框架
 // 2009-07-07 裴小星 添加注释
+// 2009-07-10 于宝 测试通过
 
 #ifndef REFRESHCONTROLLER_H
 #define REFRESHCONTROLLER_H
@@ -59,9 +60,10 @@ public:
     void refresh(int channelId);
 
     /**
-      When start to refresh the channel,
+      When start to download the channel,
       the observer will be notified.
-
+      @param channelId
+      The id of the channel to download.
       */
     void handleStartDownload(int channelId);
 
@@ -80,11 +82,6 @@ public:
 
 private:
     RefreshController();
-
-    /**
-      excute the refresh operation.
-      */
-    void run();
 
     /** The timer to count when to start refresh after an interval. */
     QTimer* mTimer;
