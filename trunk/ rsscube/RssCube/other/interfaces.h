@@ -17,6 +17,8 @@ public:
     /**
       When start to download the channel,
       the observer will be notified.
+      @param channelId
+      The id of the channel to download.
       */
     virtual void handleStartDownload(int channelId) = 0;
 

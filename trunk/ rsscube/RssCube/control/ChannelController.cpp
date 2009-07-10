@@ -1,8 +1,9 @@
 // 2009-07-07 于宝 创建框架
 
-#include "ChannelController.h"
 #include <QSqlQuery>
 #include <QVariant>
+#include "ChannelController.h"
+#include "../other/macros.h"
 
 ChannelController::ChannelController()
 {
@@ -52,13 +53,20 @@ QString ChannelController::getArticleHtml(int articleId)
     return Article::getHtml(articleId);
 }
 
-void ChannelController::checkUrl()
+void ChannelController::checkUrl(const QString & url)
 {
-
+    ChannelDownloader *loader=new ChannelDownloader(false);
+    loader->setObserver(this);
+    loader->checkUrlAsync(url);
 }
 
-void ChannelController::handleChannelDownloaded(int channelId,ChannelDownloader* downloaderToDelete,
-                                 DownloadState downloadState)
+void ChannelController::handleChannelDownloaded(int channelId, DownloadState downloadState,
+                                                ChannelDownloader* downloaderToDelete)
 {
+    DELETE(downloaderToDelete);
+    mObserver->handleUrlChecked(downloadState);
+}
 
+void ChannelController::handleStartDownload(int channelId)
+{
 }

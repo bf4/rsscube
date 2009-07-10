@@ -41,6 +41,7 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
   </valuemap>
  </data>
  <data>
@@ -48,6 +49,7 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
    <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
   </valuemap>
  </data>
  <data>
@@ -55,61 +57,61 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >CCACHE_DIR=/var/cache/ccache</value>
-    <value type="QString" >CCACHE_UMASK=002</value>
     <value type="QString" >CVS_RSH=ssh</value>
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-rFMAuqEcPQ,guid=65ba1662daff7ef9e34fb2004a51e63e</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-QUzXkVPy6D,guid=471609cf00dff7bd141c30004a553955</value>
     <value type="QString" >DESKTOP_SESSION=default</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
     <value type="QString" >GDMSESSION=default</value>
-    <value type="QString" >GDM_LANG=zh_CN.UTF-8</value>
+    <value type="QString" >GDM_LANG=en_US.UTF-8</value>
     <value type="QString" >GDM_XSERVER_LOCATION=local</value>
     <value type="QString" >GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString" >GNOME_KEYRING_PID=2504</value>
-    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-tEbnaq/socket</value>
+    <value type="QString" >GNOME_KEYRING_PID=11859</value>
+    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-bYhv7t/socket</value>
     <value type="QString" >GTK_IM_MODULE=scim-bridge</value>
     <value type="QString" >GTK_MODULES=gnomebreakpad</value>
-    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/root/.gtkrc-1.2-gnome2</value>
+    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/GuanQBY2008/.gtkrc-1.2-gnome2</value>
     <value type="QString" >G_BROKEN_FILENAMES=1</value>
     <value type="QString" >HISTSIZE=1000</value>
-    <value type="QString" >HOME=/root</value>
-    <value type="QString" >HOSTNAME=localhost</value>
+    <value type="QString" >HOME=/home/GuanQBY2008</value>
+    <value type="QString" >HOSTNAME=GuanQBY2008</value>
     <value type="QString" >INPUTRC=/etc/inputrc</value>
-    <value type="QString" >LANG=zh_CN.UTF-8</value>
-    <value type="QString" >LD_LIBRARY_PATH=/home/xing/qt/lib/qtcreator:</value>
+    <value type="QString" >LANG=en_US.UTF-8</value>
+    <value type="QString" >LD_LIBRARY_PATH=/home/GuanQBY2008/qtsdk-2009.02/lib/qtcreator:</value>
     <value type="QString" >LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString" >LOGNAME=root</value>
+    <value type="QString" >LOGNAME=GuanQBY2008</value>
     <value type="QString" >LS_COLORS=</value>
-    <value type="QString" >MAIL=/var/spool/mail/root</value>
-    <value type="QString" >PATH=/home/xing/qt/qt/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin:/root/bin</value>
-    <value type="QString" >PWD=/home/xing/qt/bin</value>
-    <value type="QString" >QTDIR=/home/xing/qt/qt</value>
-    <value type="QString" >QT_IM_MODULE=scim</value>
-    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/2506,unix/unix:/tmp/.ICE-unix/2506</value>
+    <value type="QString" >MAIL=/var/spool/mail/GuanQBY2008</value>
+    <value type="QString" >MANPATH=/home/GuanQBY2008/qtsdk-2009.02/qt/doc/man:</value>
+    <value type="QString" >PATH=/home/GuanQBY2008/qtsdk-2009.02/qt/bin:/home/GuanQBY2008/qtsdk-2009.02/qt/bin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/GuanQBY2008/bin</value>
+    <value type="QString" >PWD=/home/GuanQBY2008/qtsdk-2009.02/bin</value>
+    <value type="QString" >QTDIR=/home/GuanQBY2008/qtsdk-2009.02/qt</value>
+    <value type="QString" >QT_IM_MODULE=xim</value>
+    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/11860,unix/unix:/tmp/.ICE-unix/11860</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=1</value>
-    <value type="QString" >SSH_AGENT_PID=2621</value>
+    <value type="QString" >SSH_AGENT_PID=11936</value>
     <value type="QString" >SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-oEUBHo2506/agent.2506</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-qhghH11860/agent.11860</value>
     <value type="QString" >TERM=dumb</value>
-    <value type="QString" >USER=root</value>
+    <value type="QString" >USER=GuanQBY2008</value>
+    <value type="QString" >USERNAME=GuanQBY2008</value>
     <value type="QString" >WINDOWPATH=7</value>
-    <value type="QString" >XAUTHORITY=/tmp/.gdmZVI5WU</value>
+    <value type="QString" >XAUTHORITY=/tmp/.gdm79H0WU</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/usr/share/gdm/</value>
-    <value type="QString" >XDG_SESSION_COOKIE=5783b5ced29a99a99f017e004a424700-1246881341.18743-797747190</value>
+    <value type="QString" >XDG_SESSION_COOKIE=3e406a79e3a3960f8ec3ef004a4dfb00-1247099220.21694-792798216</value>
     <value type="QString" >XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
-    <value type="QString" >/home/RssCubeAll/Test/GroupControllerTest/GroupControllerTest.pro</value>
+    <value type="QString" >/home/GuanQBY2008/RssProjects/MagiCube/rsscube/Test/GroupControllerTest/GroupControllerTest.pro</value>
     <value type="QString" >-spec</value>
     <value type="QString" >linux-g++</value>
     <value type="QString" >-r</value>
     <value type="QString" >CONFIG+=debug</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString" >/home/xing/qt/qt/bin/qmake</value>
-   <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/RssCubeAll/Test/GroupControllerTest</value>
+   <value key="abstractProcess.command" type="QString" >/home/GuanQBY2008/qtsdk-2009.02/qt/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool" >false</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/GuanQBY2008/RssProjects/MagiCube/rsscube/Test/GroupControllerTest</value>
    <value key="buildConfiguration" type="int" >2</value>
   </valuemap>
  </data>
@@ -118,49 +120,49 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >CCACHE_DIR=/var/cache/ccache</value>
-    <value type="QString" >CCACHE_UMASK=002</value>
     <value type="QString" >CVS_RSH=ssh</value>
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-rFMAuqEcPQ,guid=65ba1662daff7ef9e34fb2004a51e63e</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-QUzXkVPy6D,guid=471609cf00dff7bd141c30004a553955</value>
     <value type="QString" >DESKTOP_SESSION=default</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
     <value type="QString" >GDMSESSION=default</value>
-    <value type="QString" >GDM_LANG=zh_CN.UTF-8</value>
+    <value type="QString" >GDM_LANG=en_US.UTF-8</value>
     <value type="QString" >GDM_XSERVER_LOCATION=local</value>
     <value type="QString" >GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString" >GNOME_KEYRING_PID=2504</value>
-    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-tEbnaq/socket</value>
+    <value type="QString" >GNOME_KEYRING_PID=11859</value>
+    <value type="QString" >GNOME_KEYRING_SOCKET=/tmp/keyring-bYhv7t/socket</value>
     <value type="QString" >GTK_IM_MODULE=scim-bridge</value>
     <value type="QString" >GTK_MODULES=gnomebreakpad</value>
-    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/root/.gtkrc-1.2-gnome2</value>
+    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/GuanQBY2008/.gtkrc-1.2-gnome2</value>
     <value type="QString" >G_BROKEN_FILENAMES=1</value>
     <value type="QString" >HISTSIZE=1000</value>
-    <value type="QString" >HOME=/root</value>
-    <value type="QString" >HOSTNAME=localhost</value>
+    <value type="QString" >HOME=/home/GuanQBY2008</value>
+    <value type="QString" >HOSTNAME=GuanQBY2008</value>
     <value type="QString" >INPUTRC=/etc/inputrc</value>
-    <value type="QString" >LANG=zh_CN.UTF-8</value>
-    <value type="QString" >LD_LIBRARY_PATH=/home/xing/qt/lib/qtcreator:</value>
+    <value type="QString" >LANG=en_US.UTF-8</value>
+    <value type="QString" >LD_LIBRARY_PATH=/home/GuanQBY2008/qtsdk-2009.02/lib/qtcreator:</value>
     <value type="QString" >LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString" >LOGNAME=root</value>
+    <value type="QString" >LOGNAME=GuanQBY2008</value>
     <value type="QString" >LS_COLORS=</value>
-    <value type="QString" >MAIL=/var/spool/mail/root</value>
-    <value type="QString" >PATH=/home/xing/qt/qt/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin:/root/bin</value>
-    <value type="QString" >PWD=/home/xing/qt/bin</value>
-    <value type="QString" >QTDIR=/home/xing/qt/qt</value>
-    <value type="QString" >QT_IM_MODULE=scim</value>
-    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/2506,unix/unix:/tmp/.ICE-unix/2506</value>
+    <value type="QString" >MAIL=/var/spool/mail/GuanQBY2008</value>
+    <value type="QString" >MANPATH=/home/GuanQBY2008/qtsdk-2009.02/qt/doc/man:</value>
+    <value type="QString" >PATH=/home/GuanQBY2008/qtsdk-2009.02/qt/bin:/home/GuanQBY2008/qtsdk-2009.02/qt/bin:/usr/kerberos/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/GuanQBY2008/bin</value>
+    <value type="QString" >PWD=/home/GuanQBY2008/qtsdk-2009.02/bin</value>
+    <value type="QString" >QTDIR=/home/GuanQBY2008/qtsdk-2009.02/qt</value>
+    <value type="QString" >QT_IM_MODULE=xim</value>
+    <value type="QString" >SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/11860,unix/unix:/tmp/.ICE-unix/11860</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=1</value>
-    <value type="QString" >SSH_AGENT_PID=2621</value>
+    <value type="QString" >SSH_AGENT_PID=11936</value>
     <value type="QString" >SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-oEUBHo2506/agent.2506</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-qhghH11860/agent.11860</value>
     <value type="QString" >TERM=dumb</value>
-    <value type="QString" >USER=root</value>
+    <value type="QString" >USER=GuanQBY2008</value>
+    <value type="QString" >USERNAME=GuanQBY2008</value>
     <value type="QString" >WINDOWPATH=7</value>
-    <value type="QString" >XAUTHORITY=/tmp/.gdmZVI5WU</value>
+    <value type="QString" >XAUTHORITY=/tmp/.gdm79H0WU</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/usr/share/gdm/</value>
-    <value type="QString" >XDG_SESSION_COOKIE=5783b5ced29a99a99f017e004a424700-1246881341.18743-797747190</value>
+    <value type="QString" >XDG_SESSION_COOKIE=3e406a79e3a3960f8ec3ef004a4dfb00-1247099220.21694-792798216</value>
     <value type="QString" >XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
@@ -168,7 +170,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/RssCubeAll/Test/GroupControllerTest</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/GuanQBY2008/RssProjects/MagiCube/rsscube/Test/GroupControllerTest</value>
   </valuemap>
  </data>
  <data>
