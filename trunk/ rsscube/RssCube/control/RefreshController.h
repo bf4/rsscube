@@ -31,7 +31,7 @@ public:
     }
 
     /**
-      Init the controller. Start to refresh if sutoRefresh is set to true.
+      Init the controller. Start to refresh if autoRefresh is set to true.
       */
     void init();
 
