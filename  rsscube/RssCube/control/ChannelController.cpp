@@ -1,9 +1,10 @@
 // 2009-07-07 于宝 创建框架
+// 2009-07-08 于宝 实现函数
 
 #include <QSqlQuery>
 #include <QVariant>
-#include "ChannelController.h"
 #include "../other/macros.h"
+#include "ChannelController.h"
 
 ChannelController::ChannelController()
 {
@@ -13,9 +14,9 @@ ChannelController::~ChannelController()
 {
 }
 
-void ChannelController::setObserver(IChannelControllerObserver * observer)
+void ChannelController::setObserver(IChannelControllerObserver *observer)
 {
-    mObserver=observer;
+    mObserver = observer;
 }
 
 QVector<Article> ChannelController::getArticles(int channelId)
@@ -23,9 +24,9 @@ QVector<Article> ChannelController::getArticles(int channelId)
     return Article::getArticlesByChannelId(channelId);
 }
 
-int ChannelController::addChannel(int groupId,const QString &name,const QString &url)
+int ChannelController::addChannel(int groupId, const QString &name, const QString &url)
 {
-    return Channel::addChannel(groupId,name,url);
+    return Channel::addChannel(groupId, name, url);
 }
 
 void ChannelController::removeChannel(int channelId)
@@ -33,12 +34,12 @@ void ChannelController::removeChannel(int channelId)
     Channel::removeChannel(channelId);
 }
 
-void ChannelController::dragChannel(int channelId,int newGroupId)
+void ChannelController::dragChannel(int channelId, int newGroupId)
 {
     Channel::setGroup(channelId, newGroupId);
 }
 
-void ChannelController::renameChannel(int channelId,const QString &newName)
+void ChannelController::renameChannel(int channelId, const QString &newName)
 {
     Channel::rename(channelId,newName);
 }
@@ -51,7 +52,7 @@ QString ChannelController::getArticleHtml(int articleId)
 
 void ChannelController::checkUrl(const QString & url)
 {
-    ChannelDownloader *loader=new ChannelDownloader(false);
+    ChannelDownloader *loader = new ChannelDownloader(false);
     loader->setObserver(this);
     loader->checkUrlAsync(url);
 }
