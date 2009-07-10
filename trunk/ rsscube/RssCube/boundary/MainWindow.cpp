@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include "../control/DatabaseController.h"
 #include "../control/RefreshController.h"
+#include "../control/ChannelController.h"
 #include "../control/SettingController.h"
 #include <iostream>
 using namespace std;
@@ -24,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //loader->downloadChannelAsync();
     loader->checkUrlAsync("http://www.people.com.cn/rss/finance.xml");
     */
+    /*
     ui->setupUi(this);
     DatabaseController db=DatabaseController::getInstance();
     db.connect("rss_cube.db");
@@ -32,6 +34,16 @@ MainWindow::MainWindow(QWidget *parent) :
     fresher.setObserver(this);
     fresher.init();
     SettingController::getInstance().changeRreshSetting(true,1);
+    */
+
+    ui->setupUi(this);
+    DatabaseController db = DatabaseController::getInstance();
+    db.connect();
+
+    ChannelController & controller = ChannelController::getInstance();
+    controller.setObserver(this);
+    controller.checkUrl("http://www.people.com.cn/rss/finance.xml");
+
   // fresher.refreshAll();
 }
 
@@ -40,10 +52,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-int MainWindow::add()
+void MainWindow::handleUrlChecked(DownloadState downloadState)
 {
-    return 0;
+    QString str="";
+    if(downloadState==DS_Success)
+       str=QString("sucess");
+    else if(downloadState==DS_Timeout)
+       str=QString("timeout");
+    else
+       str=QString("format error");
+
+   QLabel *label = new QLabel();
+   label->setText(str);
+   label->show();
 }
+
 /*
 void MainWindow::handleStartDownload(int channelId)
 {
@@ -70,6 +93,8 @@ void MainWindow::handleChannelDownloaded(int channelId,DownloadState downloadSta
     DELETE(downloaderToDelete);
 }
 */
+
+/*
 void MainWindow::handleStartRefresh(int channelId)
 {
    QLabel *label = new QLabel();
@@ -96,5 +121,5 @@ void MainWindow::handleStartRefreshAll()
    label->setText(QString("refresh all") );
    label->show();
 }
-
+*/
 

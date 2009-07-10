@@ -35,11 +35,7 @@ void ChannelController::removeChannel(int channelId)
 
 void ChannelController::dragChannel(int channelId,int newGroupId)
 {
-    QSqlQuery query;
-    query.prepare("update channels set group_id=:groupId where channel_id=:channelId");
-    query.bindValue(":groupId",newGroupId);
-    query.bindValue(":channelId",channelId);
-    query.exec();
+    Channel::setGroup(channelId, newGroupId);
 }
 
 void ChannelController::renameChannel(int channelId,const QString &newName)

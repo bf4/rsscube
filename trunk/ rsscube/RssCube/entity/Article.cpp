@@ -63,12 +63,12 @@ QString Article::getHtml(int articleId)
     QString ret="";
     ret=ret+"<HTML>"+"<H1>"+article.getTitle()+"</H1>"+"\n";
     ret=ret+"<HEAD>"+"<META http-equiv=\"content-Type\" content=\"text/html; charset=utf-8\">"+"</HEAD>";
-    ret=ret+"<P>"+"PublishTime: "+article.getPublishDate()+"<Br>";
+    ret=ret+"<P>"+"Publish Time: "+article.getPublishDate()+"<Br>";
     ret=ret+"Author: "+article.getAuthor()+"<Br>";
     ret=ret+"Category: "+article.getCategory()+"<Br>";
     ret=ret+"</P>";
     ret=ret+"<P>"+"Summary: "+article.getDescription()+"</P>";
-    ret=ret+"<P>"+"<A href=' "+article.getLink()+" '>"+"阅读全文"+"</A>"+"</P>";
+    ret=ret+"<P>"+"<A href='"+article.getLink()+"'>"+"More..."+"</A>"+"</P>";
     ret=ret+"<HTML>";
     return ret;
 }

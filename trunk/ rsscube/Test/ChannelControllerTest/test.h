@@ -9,8 +9,17 @@ class Test : public QObject
 {
     Q_OBJECT
 
+public:
+    Test();
+
 private slots:
-    void test();
+    void getArticles_test();
+    void addChannel_test();
+    void removeChannel_test();
+    void dragChannel_test();
+    void renameChannel_test();
+    void getArticleHtml_test();
+    void checkUrl_test();
 };
 
 #endif // TEST_H
