@@ -24,14 +24,14 @@ public:
     }
 
     /**
-      Connect the database
+      Connect the database.
       @param databaseFilename
       The filename of the database file.
       */
     void connect(QString databaseFilename = "rss_cube.db");
 
     /**
-      Close the database
+      Close the database.
       */
     void close();
 
