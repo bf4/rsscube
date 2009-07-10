@@ -1,6 +1,7 @@
-//2009-07-07 于宝 创建框架
-//2009-07-07 于宝 添加注释
-//2009-07-07 于宝 writeArticle()改为getArticleHtml()
+// 2009-07-07 于宝 创建框架
+// 2009-07-07 于宝 添加注释
+// 2009-07-07 于宝 writeArticle()改为getArticleHtml()
+// 2009-07-10 裴小星 测试通过
 
 #ifndef CHANNELCONTROLLER_H
 #define CHANNELCONTROLLER_H
@@ -12,6 +13,10 @@
 #include "../entity/Channel.h"
 #include "../entity/ChannelDownloader.h"
 
+/**
+  A channel downloader is used to download a channel.
+  When download completed, the downloader should be destroyed.
+  */
 class ChannelController: IChannelDownloaderObserver
 {
 public:    
@@ -29,81 +34,72 @@ public:
     }
 
      /**
-      set the observer when the url is checked
+      Set the observer. When the url is checked, the observer will be notified.
       @param observer
-      the channel controller observer
+      The observer to notify.
       */
     void setObserver(IChannelControllerObserver *observer);
 
      /**
-      get articles in the specific channel
+      Get articles in the specific channel.
       @param channelId
-      a specific channel's id
+      The id of the specific channel.
       @return
-      the articles in the specific
+      The articles in the specific channel.
       */
     QVector<Article> getArticles(int channelId);
 
      /**
-      add a new channel to a specific group
+      Add a new channel to a specific group
       @param groupId
-      to specify the group to add the channel in
+      The id of the specific group.
       @param name
-      the new channel's name
+      The name of the added channel.
       @param &url
-      the channel's url
+      The url of the added channel.
       @return
-      the new channel's id
+      The id of the added channel.
       */
     int addChannel(int groupId,const QString &name,const QString &url);
 
      /**
-      to remove a channel
+      Remove a channel with the specific id.
       @param channelId
-      the id the channel to remove
+      The id of the channel to remove.
       */
     void removeChannel(int channelId);
 
      /**
-      to move a channel by dragging it onto a new group
+      Move a channel by dragging it onto a new group.
       @param channelId
-      the id of the channel to move
+      The id of the channel to move.
       @param newGroupId
-      the id of the group which the channel is to move in
+      The id of the group which the channel is to move in.
       */
     void dragChannel(int channelId,int newGroupId);
 
      /**
-      to rename a channel
+      Rename a channel.
       @param channelId
-      the id of the channel to rename
+      The id of the channel to rename.
       @param newName
-      the channel's newName
+      The new name of the channel.
       */
     void renameChannel(int channelId,const QString &newName);
 
      /**
-      to invoke the function writeHtml of the Aarticle class
-      @param
+      Get the html format descrtition of the article with the specific id.
+      @param articleId
+      The id of the article.
       */
     QString getArticleHtml(int articleId);
 
      /**
-       to check if a url is a valid url and if the source live up to the RSS standard
+       Check whether the specific url is a valid url and whether the source live up to the RSS standard.
+       @param url
+       The url to check.
       */
     void checkUrl(const QString & url);
-
-     /**
-        to handle the channels that has been downloaded
-      @param channelId
-      the channels to handle
-      @param downloaderToDelete
-      a pointer pointing to a channelDownloader
-      @param downloadState
-      the download state
-      */
-    void handleChannelDownloaded(int channelId, DownloadState downloadState,
-                                 ChannelDownloader* downloaderToDelete);
 
     /**
       When start to download the channel,
@@ -113,10 +109,24 @@ public:
       */
     void handleStartDownload(int channelId);
 
+    /**
+      When the downloader compelete to download a channel,
+      the observer will be notified.
+      This function is used to handle this event.
+      @param channelId
+      The id of the channel to download.
+      @param downloadState
+      The downloadState (Success, Timeout, RssFomatError).
+      @param downloaderToDelete
+      The downloader to delete
+      */
+    void handleChannelDownloaded(int channelId, DownloadState downloadState,
+                                 ChannelDownloader* downloaderToDelete);
+
 private:
     ChannelController();
 
-    /**  a pointer that observes action that checks the url*/
+    /**  The observer to notify when the url is checked. */
     IChannelControllerObserver *mObserver;
 };
 
