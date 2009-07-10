@@ -26,47 +26,48 @@ public:
     }
 
     /**
-      get the children's groups of the chose group
+      Get the groups included in the specific group.
       @param parentId
-      the chosen group's id
+      The id of the specific group.
       @return
-      get the children's groups of the chose group
+      The groups included in the specific group.
       */
     QVector<Group> getSubGroups(int parentId);
 
     /**
-      add a new group
+      Add a new group
       @param parentId
-      the id of the group which is going to be the new group's parent
+      The id of the group which is going to be the new group's parent.
+      (If the group is added to the root, the parentId will be 0.)
       @param name
-      the name of the new group
+      The name of the new group.
       @return
-      return the new group's id
+      The new group's id.
       */
     int addGroup(int parentId, const QString &name);
 
     /**
-      delete the group of the chosen group, including all the children it has
+      Remove the group of the specific group.
       @param groupId
-      the id of the group which is going to be deleted
+      The id of the group which is going to be removed.
       */
     void removeGroup(int groupId);
 
     /**
-      drag the group to its new parent group
+      Drag the specific group to a new parent group.
       @param groupId
-      the id of chosen group
+      The id of chosen group
       @param newParentId
-      the id of the chosen group's new parent
+      The id of the new paren of the specific group.
       */
     void dragGroup(int groupId, int newParentId);
 
     /**
-      input a new name to the chosen group
+      Rename a specific group.
       @param id
-      the id of the chosen group
+      The id of the specific group.
       @param newName
-      the new name of the chosen group
+      The new name of the specific group.
       */
     void renameGroup(int id, const QString &newName);
 
