@@ -22,7 +22,7 @@ public:
     }
 
     /**
-      end the program
+      End the program. Also close the database.
       */
     void exit();
 
