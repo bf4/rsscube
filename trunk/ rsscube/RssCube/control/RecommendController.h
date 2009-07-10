@@ -24,25 +24,23 @@ public:
     }
 
     /**
-      get the channels that are recommended by the system
+      Get the channels that are recommended by the system
       @return
-      tthe channels that are recommended by the system
+      The channels that are recommended by the system
       */
     QVector<Channel> getSystemRecommendChannels();
 
     /**
-      get the channels that are recommended by the user
+      Get the channels that are recommended by the user
       @return
-      the channels that are recommended by the user
+      The channels that are recommended by the user
       */
     QVector<Channel> getUserRecommendChannels();
 
     /**
-      to set a general channel a user recommend channel or a system recommend channel
-      @param &systemChannel
-      system recommend channel
-      @param &userChannel
-      user recommend channels
+      Set the new recommend channels.
+      @param &userSelectedChannels
+      The recommend channels that selected by user.
       */
     void setRecommendChannels(const QVector<int> &userSelectedChannels);
 
