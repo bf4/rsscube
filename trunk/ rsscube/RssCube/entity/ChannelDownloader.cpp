@@ -126,6 +126,8 @@ void ChannelDownloader::parseChannelChildElement(const QDomElement & item)
 
 void ChannelDownloader::httpDownloaded(bool error)
 {
+    mTimer->stop();
+
     if (error)
     {
         mObserver->handleChannelDownloaded(mChannelId, DS_Timeout, this);
