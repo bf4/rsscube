@@ -4,12 +4,15 @@
 
 #ifndef CHANNELCONTROLLER_H
 #define CHANNELCONTROLLER_H
-#include "../other/interfaces.h"
+
 #include <QVector>
+#include "../other/enums.h"
+#include "../other/interfaces.h"
 #include "../entity/Article.h"
 #include "../entity/Channel.h"
+#include "../entity/ChannelDownloader.h"
 
-class ChannelController
+class ChannelController: IChannelDownloaderObserver
 {
 public:    
     ~ChannelController();
@@ -88,7 +91,7 @@ public:
      /**
        to check if a url is a valid url and if the source live up to the RSS standard
       */
-    void checkUrl();
+    void checkUrl(const QString & url);
 
      /**
         to handle the channels that has been downloaded
@@ -99,8 +102,16 @@ public:
       @param downloadState
       the download state
       */
-    void handleChannelDownloaded(int channelId,ChannelDownloader* downloaderToDelete,
-                                 DownloadState downloadState);
+    void handleChannelDownloaded(int channelId, DownloadState downloadState,
+                                 ChannelDownloader* downloaderToDelete);
+
+    /**
+      When start to download the channel,
+      the observer will be notified.
+      @param channelId
+      The id of the channel to download.
+      */
+    void handleStartDownload(int channelId);
 
 private:
     ChannelController();
