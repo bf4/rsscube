@@ -33,7 +33,15 @@ enum ContentType
     CT_Author,
     CT_Title,
     CT_Url,
-    CT_Summary,
+    CT_Summary
+};
+
+/** tree node types */
+enum TreeNodeType{
+    TNT_Group=1001,
+    TNT_Channel,
+    TNT_Recommand,
+    TNT_RecommandG
 };
 
 #endif // ENUM_H

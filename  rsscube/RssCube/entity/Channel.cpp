@@ -14,17 +14,17 @@ Channel::~Channel()
 {
 }
 
-int Channel::getId()
+int Channel::getId() const
 {
     return this->mId;
 }
 
-QString Channel::getName()
+QString Channel::getName() const
 {
     return this->mName;
 }
 
-QString Channel::getUrl()
+QString Channel::getUrl() const
 {
     return this->mUrl;
 }
@@ -52,7 +52,7 @@ QVector<Channel> Channel::getAllChannels()
     QVector<Channel> ret;
     QSqlQuery query;
     Channel channel;
-    query.exec("SELECT id, name, url FROM channels");
+    query.exec("SELECT id, name, url FROM channels WHERE recommend<>1");
 
     while(query.next())
     {

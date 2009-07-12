@@ -18,21 +18,21 @@ public:
       @return
       return the Channel's id
       */
-    int getId();
+    int getId() const;
 
     /**
       get the Channel's name
       @return
       return the Channel's name
       */
-    QString getName();
+    QString getName() const;
 
     /**
       get the Channel's url
       @return
       return the Channel's url
       */
-    QString getUrl();
+    QString getUrl() const;
 
     /**
       get the channel by id

@@ -7,6 +7,7 @@
 
 #include <QVector>
 #include <QString>
+#include "../entity/Channel.h"
 #include "../entity/Group.h"
 
 class GroupController
@@ -33,6 +34,15 @@ public:
       The groups included in the specific group.
       */
     QVector<Group> getSubGroups(int parentId);
+
+    /**
+      Get the channel included in the specific group.
+      @param groupId
+      The id of the specific group.
+      @return
+      The groups included in the specific group.
+      */
+    QVector<Channel> getSubChannels(int groupId);
 
     /**
       Add a new group

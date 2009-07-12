@@ -9,20 +9,23 @@
 #include "Article.h"
 #include "ChannelDownloader.h"
 
-ChannelDownloader::ChannelDownloader(bool writeDb) : QObject(NULL), mWriteDb(writeDb)
+ChannelDownloader::ChannelDownloader(bool writeDb) :
+        QObject(NULL), mWriteDb(writeDb), mHttpAborted(false), mRssFormatError(false),
+        mCurrentTag(""), mTitle(""), mPublishDate(""), mAuthor(""),
+        mCategory(""), mDescription(""), mLink("")
 {
     mHttp = new QHttp();
-    mBuffer = new QBuffer();
     mTimer = new QTimer();
 
     connect(mHttp, SIGNAL(done(bool)), this, SLOT(httpDownloaded(bool)));
-    connect(mTimer, SIGNAL(timeout()), this, SLOT(httpTimeout()));    
+    connect(mHttp, SIGNAL(readyRead(const QHttpResponseHeader &)),
+             this, SLOT(parseRss(const QHttpResponseHeader &)));
+    connect(mTimer, SIGNAL(timeout()), this, SLOT(httpTimeout()));
 }
 
 ChannelDownloader::~ChannelDownloader()
 {
     DELETE(mHttp);
-    DELETE(mBuffer);
     DELETE(mTimer);
 }
 
@@ -44,13 +47,12 @@ void ChannelDownloader::downloadChannelAsync()
 
     QUrl url(mChannel.getUrl());
     mHttp->setHost(url.host(), url.port(80));
-
-    mBuffer->open(QIODevice::WriteOnly);
-
-    mHttp->get(url.path(), mBuffer);
+    mHttp->get(url.path());
     mHttp->close();
 
-    mTimer->start(MAX_DOWNLOAD_TIME * 1000);
+    mTimer->start(MAX_DOWNLOAD_TIME * 1000);    
+
+    Article::logicRemove(mChannelId);
 }
 
 void ChannelDownloader::checkUrlAsync(const QString & urlString)
@@ -59,68 +61,57 @@ void ChannelDownloader::checkUrlAsync(const QString & urlString)
 
     QUrl url(urlString);
     mHttp->setHost(url.host(), url.port(80));
-
-    mBuffer->open(QIODevice::WriteOnly);
-
-    mHttp->get(url.path(), mBuffer);
+    mHttp->get(url.path());
     mHttp->close();
 
     mTimer->start(MAX_DOWNLOAD_TIME * 1000);
 }
 
-void ChannelDownloader::parseRss(const QString & rssXml)
+void ChannelDownloader::parseRss(const QHttpResponseHeader &resp)
 {
-    QDomDocument rssDoc;
-    rssDoc.setContent(rssXml);
+    xml.addData(mHttp->readAll());
 
-    const QDomElement & channelElement = rssDoc.documentElement().firstChildElement("channel");
-    if (channelElement.isNull())
+    while (!xml.atEnd())
     {
-        mObserver->handleChannelDownloaded(mChannelId, DS_RssFormatError, this);
-    }
-    else
-    {
-        parseChannelElement(channelElement);
-    }    
-}
+        xml.readNext();
 
-void ChannelDownloader::parseChannelElement(const QDomElement & channelElement)
-{
-    if (mWriteDb)
-    {
-        Article::removeArticles(mChannelId);
-
-        QDomNode rssChannelChild = channelElement.firstChild();
-
-        while (!rssChannelChild.isNull())
+        if (xml.isStartElement())
         {
-            parseChannelChildElement(rssChannelChild.toElement());
-            rssChannelChild = rssChannelChild.nextSibling();
+            mCurrentTag = xml.name().toString();
+        }
+        else if (xml.isEndElement())
+        {            
+            if (xml.name() == "item")
+            {
+                if (mWriteDb)
+                {
+                    Article::addArticle(mChannelId, mPublishDate, mCategory, mAuthor, mTitle, mDescription, mLink);
+                }
+
+                mCurrentTag = "";
+                mTitle = "";
+                mPublishDate = "";
+                mAuthor = "";
+                mCategory = "";
+                mDescription = "";
+                mLink = "";
+            }
+        }
+        else if (xml.isCharacters() && !xml.isWhitespace())
+        {
+            if (mCurrentTag == "title") { mTitle += xml.text().toString();  }
+            else if (mCurrentTag == "pubDate") { mPublishDate += xml.text().toString(); }
+            else if (mCurrentTag == "author") { mAuthor += xml.text().toString(); }
+            else if (mCurrentTag == "category") {  mCategory += xml.text().toString(); }
+            else if (mCurrentTag == "description") { mDescription += xml.text().toString(); }
+            else if (mCurrentTag == "link") { mLink += xml.text().toString(); }
         }
     }
 
-    mObserver->handleChannelDownloaded(mChannelId, DS_Success, this);
-}
-
-void ChannelDownloader::parseChannelChildElement(const QDomElement & item)
-{
-    if (item.tagName() == "item")
+    if (xml.error() && xml.error() != QXmlStreamReader::PrematureEndOfDocumentError)
     {
-        QString title = item.firstChildElement("title").text();
-        QString publishDate = item.firstChildElement("pubDate").text();
-        QString author = item.firstChildElement("author").text();
-        QString category = item.firstChildElement("category").text();
-        QString description  = item.firstChildElement("description").text();
-        QString link = item.firstChildElement("link").text();
-
-        if (title.isNull()) { title = ""; }
-        if (publishDate.isNull()) { publishDate = ""; }
-        if (author.isNull()) { author = ""; }
-        if (category.isNull()) { category = ""; }
-        if (description.isNull()) { description = ""; }
-        if (link.isNull()) { link = ""; }
-
-        Article::addArticle(mChannelId, publishDate, category, author, title, description, link);
+        mRssFormatError = true;
+        mTimer->stop();
     }
 }
 
@@ -128,25 +119,30 @@ void ChannelDownloader::httpDownloaded(bool error)
 {
     mTimer->stop();
 
-    if (error)
+    if (mHttpAborted)  { return; }
+    if (mRssFormatError)
     {
-        mObserver->handleChannelDownloaded(mChannelId, DS_Timeout, this);
+        if (mWriteDb) { Article::logicRecover(mChannelId); }
+        mObserver->handleChannelDownloaded(mChannelId, DS_RssFormatError, this);
+        return;
     }
+
+    if(error)
+    {
+        if (mWriteDb) { Article::logicRecover(mChannelId); }
+        mObserver->handleChannelDownloaded(mChannelId, DS_Timeout, this);
+    }    
     else
     {
-        mBuffer->close();
-
-        mBuffer->open(QIODevice::ReadOnly);
-        QTextStream stream(mBuffer);
-        QString rssXml = stream.readAll();
-        mBuffer->close();
-
-        parseRss(rssXml);        
+        Article::removeArticles(-mChannelId);
+        mObserver->handleChannelDownloaded(mChannelId, DS_Success, this);
     }
 }
 
 void ChannelDownloader::httpTimeout()
 {
-    mTimer->stop();
+    mHttpAborted = true;
     mHttp->abort();
+    if (mWriteDb) { Article::logicRecover(mChannelId); }
+    mObserver->handleChannelDownloaded(mChannelId, DS_Timeout, this);
 }
