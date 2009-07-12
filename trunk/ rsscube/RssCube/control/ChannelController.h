@@ -94,6 +94,22 @@ public:
       */
     QString getArticleHtml(int articleId);
 
+    /**
+      Get the read type of the article.
+      @param articleId
+      The id of the article
+      @return
+      The read type of the article.
+      */
+    bool getArticleIsRead(int articleId);
+
+     /**
+      Set the read type of the article.
+      @param articleId
+      The id of the article
+      */
+    void setArticleIsRead(int articleId);
+
      /**
        Check whether the specific url is a valid url and whether the source live up to the RSS standard.
        @param url

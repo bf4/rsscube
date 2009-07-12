@@ -1,6 +1,6 @@
 #include <QtGui/QApplication>
 #include <QTextCodec>
-#include "boundary/MainWindow.h"
+#include "boundary/RssCube.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
 
     QApplication a(argc, argv);
-    MainWindow m;
+    RssCube m;
     m.show();
     return a.exec();
 }

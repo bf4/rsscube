@@ -10,7 +10,7 @@
 #include <QHttp>
 #include <QBuffer>
 #include <QTimer>
-#include <QDomDocument>
+#include <QXmlStreamReader>
 #include <QDomElement>
 #include "../other/interfaces.h"
 #include "../entity/Channel.h"
@@ -59,31 +59,8 @@ public:
     void checkUrlAsync(const QString & urlString);
 
 private:
-
-    /**
-      Parse the RSS document.
-      */
-    void parseRss(const QString & rssXml);
-
-    /**
-      Parse the channel element of the RSS Document.
-      @param channelElement
-      The channel element of the RSS Document.
-      */
-    void parseChannelElement(const QDomElement & channelElement);
-
-    /**
-      Parse the child element of channel element.
-      @param channelChildElement
-      The child element of channel element.
-      */
-    void parseChannelChildElement(const QDomElement & channelChildElement);
-
     /** Use to download rss document by http. */
     QHttp* mHttp;
-
-    /** Use to save the downloaded rss document. */
-    QBuffer* mBuffer;
 
     /** The time to count when to shut down the http. */
     QTimer* mTimer;
@@ -97,13 +74,34 @@ private:
     /** If set to false, all downloaded articles will not be added to the database. */
     bool mWriteDb;
 
+    /** Whether http connection is aborted.  */
+    bool mHttpAborted;
+
+    /** Whether the rss format has error. */
+    bool mRssFormatError;
+
     /** When a channel is downloaded, the doloader will notify the observer. */
     IChannelDownloaderObserver* mObserver;
 
+    /** THe tag and the attributes of articles. */
+    QXmlStreamReader xml;
+    QString mCurrentTag;
+    QString mTitle;
+    QString mPublishDate;
+    QString mAuthor;
+    QString mCategory;
+    QString mDescription;
+    QString mLink;
+
     /** Max time (seconds) to download the rss document. */
-    enum { MAX_DOWNLOAD_TIME = 120 };
+    enum { MAX_DOWNLOAD_TIME = 30 };
 
 private slots:
+
+    /**
+      Parse the RSS document.
+      */
+    void parseRss(const QHttpResponseHeader &resp);
 
     /**
       Receive the signal of QHttp instance when download completed.

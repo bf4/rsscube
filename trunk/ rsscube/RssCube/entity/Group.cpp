@@ -12,12 +12,12 @@ Group::~Group()
 {
 }
 
-int Group::getId()
+int Group::getId() const
 {
     return mId;
 }
 
-QString Group::getName()
+QString Group::getName() const
 {
     return mName;
 }

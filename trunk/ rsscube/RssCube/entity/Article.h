@@ -24,56 +24,56 @@ public:
        @return
        the article's id
      */
-    int getId();
+    int getId() const;
 
     /**
        get the article's publish time
        @return
        the article's publish time
      */
-    QString getPublishDate();
+    QString getPublishDate() const;
 
     /**
        get the article's
        @return
        the article's category
      */
-    QString getCategory();
+    QString getCategory() const;
 
     /**
        get the article's author
        @return
        the article's author
      */
-    QString getAuthor();
+    QString getAuthor() const;
 
     /**
        get the article's title
        @return
        the article's title
      */
-    QString getTitle();
+    QString getTitle() const;
 
     /**
        get the article's description
        @return
        the article's description
      */
-    QString getDescription();
+    QString getDescription() const;
 
     /**
        get the article's link address
        @return
        the article's link address
      */
-    QString getLink();
+    QString getLink() const;
 
     /**
        get the article's read type
        @return
        the article's read state
      */
-    bool getIsRead();
+    bool getIsRead() const;
 
     /**
      display the article's address on the address line of the browser
@@ -121,10 +121,19 @@ public:
 
      /**
       remove all articles in the specific channel
-      @param
+      @param channelId
       the id of the channel whose articles are to be removed
       */
     static void removeArticles(int channelId);
+    static void logicRemove(int channelId);
+    static void logicRecover(int channelId);
+
+    /**
+      set the read type of the article
+      @param id
+      The id of the article
+      */
+    static void setRead(int id);
 
 private:
      /**

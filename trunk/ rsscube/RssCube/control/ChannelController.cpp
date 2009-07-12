@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QVariant>
 #include "../other/macros.h"
+#include "RefreshController.h"
 #include "ChannelController.h"
 
 ChannelController::ChannelController()
@@ -26,7 +27,9 @@ QVector<Article> ChannelController::getArticles(int channelId)
 
 int ChannelController::addChannel(int groupId, const QString &name, const QString &url)
 {
-    return Channel::addChannel(groupId, name, url);
+    int id = Channel::addChannel(groupId, name, url);
+    RefreshController::getInstance().refresh(id);
+    return id;
 }
 
 void ChannelController::removeChannel(int channelId)
@@ -44,10 +47,19 @@ void ChannelController::renameChannel(int channelId, const QString &newName)
     Channel::rename(channelId,newName);
 }
 
-
 QString ChannelController::getArticleHtml(int articleId)
 {
     return Article::getHtml(articleId);
+}
+
+bool ChannelController::getArticleIsRead(int articleId)
+{
+    return Article::getArticle(articleId).getIsRead();
+}
+
+void ChannelController::setArticleIsRead(int articleIid)
+{
+    Article::setRead(articleIid);
 }
 
 void ChannelController::checkUrl(const QString & url)

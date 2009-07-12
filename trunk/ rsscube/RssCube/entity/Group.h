@@ -19,14 +19,14 @@ public:
       @return
       The id of current group.
       */
-    int getId();
+    int getId() const;
 
     /**
       Get the name of current group.
       @return
       The name of current group.
       */
-    QString getName();
+    QString getName() const;
 
     /**
       Get groups included in the specif group.

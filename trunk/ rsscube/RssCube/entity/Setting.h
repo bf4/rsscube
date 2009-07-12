@@ -19,21 +19,21 @@ public:
        @return
        autorefresh information
        */
-    bool getAutoRefresh();
+    bool getAutoRefresh() const;
 
      /**
       get the refresh interval
       @return
       refresh interval information
       */
-    float getRefreshInterval();
+    float getRefreshInterval() const;
 
      /**
       get the display type
       @return
       display type information
       */
-    ReadType getDisplayType();
+    ReadType getDisplayType() const;
 
      /**
       get the setting information

@@ -13,17 +13,17 @@ Setting::~Setting()
 {
 }
 
-bool Setting::getAutoRefresh()
+bool Setting::getAutoRefresh() const
 {
     return mAutoRefresh;
 }
 
-float Setting::getRefreshInterval()
+float Setting::getRefreshInterval() const
 {
     return mRefreshInterval;
 }
 
-ReadType Setting::getDisplayType()
+ReadType Setting::getDisplayType() const
 {
     return mDisplayType;
 }

@@ -24,7 +24,8 @@ public:
     /**
       initialize this program, start refresh controller and open database
       */
-    void init();
+    void initDatabase();
+    void initRefresh();
 
 private:
     StartController();
