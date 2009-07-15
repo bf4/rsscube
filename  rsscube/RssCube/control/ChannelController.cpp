@@ -57,6 +57,11 @@ bool ChannelController::getArticleIsRead(int articleId)
     return Article::getArticle(articleId).getIsRead();
 }
 
+QString ChannelController::getArticleUrl(int articleId)
+{
+    return Article::getArticle(articleId).getLink();
+}
+
 void ChannelController::setArticleIsRead(int articleIid)
 {
     Article::setRead(articleIid);

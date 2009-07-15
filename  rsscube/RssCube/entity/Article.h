@@ -127,6 +127,7 @@ public:
     static void removeArticles(int channelId);
     static void logicRemove(int channelId);
     static void logicRecover(int channelId);
+    static void clearArticles();
 
     /**
       set the read type of the article

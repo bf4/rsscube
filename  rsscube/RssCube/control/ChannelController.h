@@ -103,6 +103,15 @@ public:
       */
     bool getArticleIsRead(int articleId);
 
+    /**
+      Get the url of the article.
+      @param articleId
+      The id of the article
+      @return
+      The read type of the article.
+      */
+    QString getArticleUrl(int articleId);
+
      /**
       Set the read type of the article.
       @param articleId

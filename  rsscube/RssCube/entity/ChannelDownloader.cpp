@@ -10,7 +10,7 @@
 #include "ChannelDownloader.h"
 
 ChannelDownloader::ChannelDownloader(bool writeDb) :
-        QObject(NULL), mWriteDb(writeDb), mHttpAborted(false), mRssFormatError(false),
+        QObject(NULL), mWriteDb(writeDb), mHttpAborted(false), mRssFormatError(true), mStartItem(false),
         mCurrentTag(""), mTitle(""), mPublishDate(""), mAuthor(""),
         mCategory(""), mDescription(""), mLink("")
 {
@@ -78,6 +78,8 @@ void ChannelDownloader::parseRss(const QHttpResponseHeader &resp)
         if (xml.isStartElement())
         {
             mCurrentTag = xml.name().toString();
+            if (mCurrentTag == "rss")  { mRssFormatError = false; }
+            else if (mCurrentTag == "item")  { mStartItem = true; }
         }
         else if (xml.isEndElement())
         {            
@@ -88,6 +90,8 @@ void ChannelDownloader::parseRss(const QHttpResponseHeader &resp)
                     Article::addArticle(mChannelId, mPublishDate, mCategory, mAuthor, mTitle, mDescription, mLink);
                 }
 
+                mStartItem = false;
+
                 mCurrentTag = "";
                 mTitle = "";
                 mPublishDate = "";
@@ -97,8 +101,8 @@ void ChannelDownloader::parseRss(const QHttpResponseHeader &resp)
                 mLink = "";
             }
         }
-        else if (xml.isCharacters() && !xml.isWhitespace())
-        {
+        else if (mStartItem && xml.isCharacters() && !xml.isWhitespace())
+        {            
             if (mCurrentTag == "title") { mTitle += xml.text().toString();  }
             else if (mCurrentTag == "pubDate") { mPublishDate += xml.text().toString(); }
             else if (mCurrentTag == "author") { mAuthor += xml.text().toString(); }
@@ -106,12 +110,6 @@ void ChannelDownloader::parseRss(const QHttpResponseHeader &resp)
             else if (mCurrentTag == "description") { mDescription += xml.text().toString(); }
             else if (mCurrentTag == "link") { mLink += xml.text().toString(); }
         }
-    }
-
-    if (xml.error() && xml.error() != QXmlStreamReader::PrematureEndOfDocumentError)
-    {
-        mRssFormatError = true;
-        mTimer->stop();
     }
 }
 
@@ -132,6 +130,11 @@ void ChannelDownloader::httpDownloaded(bool error)
         if (mWriteDb) { Article::logicRecover(mChannelId); }
         mObserver->handleChannelDownloaded(mChannelId, DS_Timeout, this);
     }    
+    else if (mRssFormatError)
+    {
+        if (mWriteDb) { Article::logicRecover(mChannelId); }
+        mObserver->handleChannelDownloaded(mChannelId, DS_RssFormatError, this);
+    }
     else
     {
         Article::removeArticles(-mChannelId);
