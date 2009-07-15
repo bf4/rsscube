@@ -80,6 +80,9 @@ private:
     /** Whether the rss format has error. */
     bool mRssFormatError;
 
+    /** Whether start to parse a item */
+    bool mStartItem;
+
     /** When a channel is downloaded, the doloader will notify the observer. */
     IChannelDownloaderObserver* mObserver;
 

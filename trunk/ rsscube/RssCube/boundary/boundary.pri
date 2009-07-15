@@ -22,5 +22,6 @@ FORMS += $$PWD/Settingdialog.ui \
     $$PWD/RssCube.ui \
     $$PWD/NSetting.ui \
     $$PWD/AddDialog.ui \
-    $$PWD/AddChannel.ui
+    $$PWD/AddChannel.ui \
+    $$PWD/RssCheck.ui
 RESOURCES += $$PWD/RssCubeRes.qrc

@@ -2,6 +2,8 @@
 // 2009-07-08 于宝 实现函数
 // 2009－07－08 于宝 修改publishDate类型为QString
 
+#include <QMessageBox>
+
 #include <QSqlQuery>
 #include <QVariant>
 #include "Article.h"
@@ -143,14 +145,15 @@ QVector<Article> Article::localSearch(MatchType matchType,ReadType readType,Cont
     }
     else
     {
-        QString reType;
-        if(readType==RT_Read)
-            reType="True";
-        else reType="False";
+        //QString reType;
+        //if(readType==RT_Read)
+            //reType="True";
+        //else reType="False";
 
         query.prepare("SELECT id,publish_date,category,author,title,description,link,read_type "
-                      "FROM articles where read_type=:readType and " + conType + " like :keyword ");
-        query.bindValue(":readType", reType);
+                      "FROM articles where (read_type='false' or read_type='False') and "
+                      + conType + " like :keyword ");
+        //query.bindValue(":readType", reType);
         query.bindValue(":keyword", searchWord);
 
         query.exec();
@@ -218,6 +221,12 @@ void Article::logicRecover(int channelId)
     query.exec();
 }
 
+void Article::clearArticles()
+{
+    QSqlQuery query;
+    query.exec("DELETE FROM articles WHERE channel_id < 0");
+}
+
 void Article::setRead(int id)
 {
     QSqlQuery query;
@@ -237,7 +246,7 @@ QString Article::convertContentType(ContentType contentType)
                 break;
             case CT_Title:       type="title";
                 break;
-            case CT_Url:        type="url";
+            case CT_Url:        type="link";
                 break;
             case CT_Summary:  type="description";
                 break;
