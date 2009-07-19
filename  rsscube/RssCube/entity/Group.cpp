@@ -29,7 +29,6 @@ QVector<Group> Group::getSubGroups(int id)
     query.prepare("SELECT id, name "
                    "FROM groups "
                    "WHERE parent_id = :id");
-
     query.bindValue(":id",id);
 
     query.exec();

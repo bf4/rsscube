@@ -24,9 +24,9 @@ int GroupController::addGroup(int parentId, const QString &name)
     return Group::addGroup(parentId, name);
 }
 
-void GroupController::remove(int id)
+void GroupController::removeGroup(int id)
 {
-     Group::removeGroup(id);
+     Group::remove(id);
 }
 
 void GroupController::dragGroup(int groupId, int newParentId)
